@@ -8,7 +8,6 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   width: 100%;
@@ -38,11 +37,13 @@ html {
 
 /* Neon Hover Effect */
 .neon-text {
+  color: rgb(255, 204, 102);
   transition: 0.3s;
 }
 
 .neon-text:hover {
-  text-shadow: 0 0 10px #00ffea, 0 0 20px #00ffea, 0 0 30px #00ffea;
+  color: rgb(255, 204, 102);
+  text-shadow: 0 0 10px rgb(255, 255, 255), 0 0 20px rgb(187, 181, 170), 0 0 40px rgb(255, 204, 102), 0 0 80px rgb(255, 204, 102), 0 0 120px rgb(255, 204, 102), 0 0 200px rgb(255, 204, 102), 0 0 300px rgb(255, 204, 102), 0 0 400px rgb(255, 204, 102);
 }
 
 
