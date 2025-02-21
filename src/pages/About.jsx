@@ -54,24 +54,47 @@ const containerStyle = {
   flexDirection: "column",
   alignItems: "center",
   textAlign: "center",
+  "@media (max-width: 768px)": {
+    width: "90%",
+    padding: "15px",
+    background: "rgb(255, 0, 0)",
+  },
 };
 
 const containerLeft = {
   boxShadow: "rgba(221, 216, 216, 0.73) 7px -3px 20px 6px",
   position: "relative",
   left: "10%",
+  "@media (max-width: 768px)": {
+    width: "90%",
+    padding: "15px",
+    background: "rgb(255, 0, 0)",
+  },
 };
 
 const containerRight = {
   boxShadow: "rgba(221, 216, 216, 0.73) -8px 0px 20px 6px",
   position: "relative",
   left: "50%",
+  "@media (max-width: 768px)": {
+    width: "90%",
+    padding: "15px",
+    background: "rgb(255, 0, 0)",
+  },
 };
 
 const About = () => {
   return (
-    <section id="about" className="min-h-screen flex flex-col items-center justify-center bg-white dark:bg-gray-900 p-6">
-      <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-10" style={{ textAlign: "center" }}>My Career Timeline</h1>
+    <section id="about" className="min-h-screen flex flex-col items-center justify-center bg-white dark:bg-gray-900 p-6" style={{
+      ...(typeof window !== 'undefined' && window.innerWidth < 768 ? {
+        position: "relative",
+        top: "10vh",
+        textAlign: "center",
+        border: "1px solid #ffcc66",
+        marginBottom: "10vh",
+      } : {})
+    }}>
+      <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-10" style={{ textAlign: "center"              }}>My Career Timeline</h1>
       <div className="relative flex flex-col items-center w-full max-w-2xl">
         <div
           className="absolute w-1 bg-blue-500 dark:bg-blue-400 h-full left-1/2 transform -translate-x-1/2"
