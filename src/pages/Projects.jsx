@@ -1,19 +1,23 @@
+
+import styled from "styled-components";
 import { FaReact, FaNodeJs, FaHtml5, FaCss3, FaJs, FaPython } from "react-icons/fa";
 import { SiMongodb, SiExpress, SiFirebase, SiHeroku, SiNetlify, SiFlask } from "react-icons/si";
 import { FaLayerGroup } from "react-icons/fa";
+import { motion } from "framer-motion";
+
 const techIcons = {
   React: <FaReact />,
   "Node.js": <FaNodeJs />,
   MongoDB: <SiMongodb />,
-  "Express.js": <SiExpress /> ,
+  "Express.js": <SiExpress />,
   Firebase: <SiFirebase />,
-  "Material-UI": <FaLayerGroup/> ,
+  "Material-UI": <FaLayerGroup />,
   Heroku: <SiHeroku />,
   Netlify: <SiNetlify />,
   Python: <FaPython />,
   Flask: <SiFlask />,
   HTML: <FaHtml5 />,
-  CSS: <FaCss3 /> ,
+  CSS: <FaCss3 />,
   JavaScript: <FaJs />,
 };
 
@@ -26,43 +30,108 @@ const projects = [
 
 const Projects = () => {
   return (
-    <section id="projects" className="min-h-screen py-20 bg-gray-100 dark:bg-gray-800" style={{height:"100vh"}}>
-      <h2 className="text-1xl font-bold text-gray-900 dark:text-white text-center mb-10" style={{textAlign:"center", 
-              marginTop: "3rem", fontSize:"2rem"}}>Projects</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-6 max-w-5xl mx-auto"
-      style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(auto-fill, minmax(18rem, 1fr))",
-      }}>
+    <Section id="projects">
+      <Title>Projects</Title>
+      <Grid>
         {projects.map((project, index) => (
-          <a 
-            key={index} 
-            href={project.link} 
-            className="block p-6 bg-white dark:bg-gray-900 rounded-xl shadow-md transition-transform 
-                      transform hover:scale-105 hover:shadow-2xl hover:bg-gray-50 dark:hover:bg-gray-850"
-            style={{
-              
-              margin: "0 auto",
-              marginTop: "3rem",
-              padding: "1.5rem",
-              backgroundColor: "white",
-              borderRadius: "1rem",
-              boxShadow: "rgb(231 231 231 / 28%) 2px 2px 17px 8px",
-            }}
+          <motion.a 
+            key={index}
+            href={project.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.98 }}
           >
-            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{project.name}</h3>
-            <p className="text-gray-600 dark:text-gray-400">{project.desc}</p>
-
-            <div className="flex flex-wrap mt-4 space-x-3">
-              {project.techstackused.split(", ").map((tech, i) => (
-                <span key={i} className="text-2xl">{techIcons[tech] || tech}</span>
-              ))}
-            </div>
-          </a>
+            <Card>
+              <ProjectTitle>{project.name}</ProjectTitle>
+              <Description>{project.desc}</Description>
+              <TechStack>
+                {project.techstackused.split(", ").map((tech, i) => (
+                  <TechIcon key={i}>{techIcons[tech] || tech}</TechIcon>
+                ))}
+              </TechStack>
+            </Card>
+          </motion.a>
         ))}
-      </div>
-    </section>
+      </Grid>
+    </Section>
   );
 };
 
 export default Projects;
+
+// 🌙 Styled Components for Dark Mode
+const Section = styled.section`
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #121212;
+  padding: 6rem 2rem;
+`;
+
+const Title = styled.h1`
+  font-size: 2.5rem;
+  font-weight: bold;
+  color:rgb(255, 255, 255);
+  margin-bottom: 2rem;
+  text-align: center;
+  text-shadow: 0px 0px 10px #9b51e0;
+`;
+
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  gap: 2rem;
+  width: 100%;
+  max-width: 1000px;
+`;
+
+const Card = styled.div`
+  padding: 1.5rem;
+  background: rgba(30, 30, 30, 0.8);
+  backdrop-filter: blur(15px);
+  border-radius: 12px;
+  text-align: center;
+  color: white;
+  box-shadow: 0px 0px 15px rgba(155, 81, 224, 0.4);
+  transition: 0.3s;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: rgba(155, 81, 224, 0.6) 0px 10px 20px;
+  }
+`;
+
+const ProjectTitle = styled.h3`
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #9b51e0;
+  margin-bottom: 0.5rem;
+`;
+
+const Description = styled.p`
+  font-size: 1rem;
+  color: #bbb;
+`;
+
+const TechStack = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-top: 1rem;
+`;
+
+const TechIcon = styled.span`
+  font-size: 2rem;
+  color: #9b51e0;
+  transition: 0.3s;
+  filter: drop-shadow(0px 0px 8px rgba(155, 81, 224, 0.6));
+
+  &:hover {
+    transform: scale(1.2);
+    filter: drop-shadow(0px 0px 12px rgba(155, 81, 224, 1));
+  }
+`;

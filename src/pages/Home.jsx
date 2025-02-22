@@ -72,7 +72,7 @@ const Home = () => {
     document.head.appendChild(style);
 
     if (h3Ref.current) {
-      const splitText = new SplitType(h3Ref.current, { types: "chars" });
+      const splitText = new SplitType(h3Ref.current, { types: "words" }); // Split into words, not chars
       gsap
         .timeline({
           scrollTrigger: {
@@ -83,7 +83,7 @@ const Home = () => {
           },
         })
         .fromTo(
-          splitText.chars,
+          splitText.words, // Apply animation to words, not single letters
           { color: "#ffcc66", opacity: 0.1 },
           { color: "#ff00ff", opacity: 1, stagger: 0.1, duration: 1 }
         );
@@ -158,7 +158,7 @@ const Home = () => {
                 return (
                   <img
                     key={index}
-                    src={`src/Icons/${icon}`}
+                    src={`/portfolio-app/${icon}`}
                     alt={icon.replace(".svg", "")}
                     className="icon"
                     style={{ transform: `translate(${x - 30}px, ${y - 30}px)` }}
@@ -188,6 +188,7 @@ const Home = () => {
                 padding: "0 1.2rem",
                 fontSize: "2.1rem",
                 textAlign: "center",
+                wordBreak: "keep-all",
               } : {})
              }}
           >
@@ -202,7 +203,7 @@ const Home = () => {
               Check out my About section!
             </h4>
             <a
-              href="/about"
+              href="/#/about/"
               style={{
                 display: "inline-block",
                 backgroundColor: "#ffcc66",

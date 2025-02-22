@@ -4,16 +4,15 @@
 
 /* Header Styles */
 .header {
-  position: fixed;
+  position: relative;
   top: 0;
   z-index: 50;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 100vw;
   padding: 1rem 2rem;
-  /* height: 6rem; */
+  height: 5rem;
   background: rgba(36, 35, 35, 0.8); /* Glass effect */
   backdrop-filter: blur(10px);
   border: none;
@@ -21,8 +20,6 @@
 
 .logo {
   border-radius: 50%;
-  height: 4rem;
-  width: 4rem;
   object-fit: cover;
 }
 
@@ -30,6 +27,7 @@
 .desktop-nav {
   display: flex;
   align-items: center;
+  flex-position: end;
 }
 
 .nav-link {
@@ -69,7 +67,7 @@
   header {
     position: fixed;
     display: flex;
-    flex-wrap: wrap;
+    padding : 0;
     width: 100vw; 
     flex-direction: row;
   }

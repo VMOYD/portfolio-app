@@ -1,5 +1,5 @@
 {
-  "homepage": "https://vmoyd.github.io/portfolio-app/",
+  "homepage": "https://vmoyd.github.io/portfolio-app",
   "name": "portfolio-app",
   "private": true,
   "version": "0.0.0",
@@ -10,7 +10,8 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "clean": "rmdir /s /q dist"
   },
   "dependencies": {
     "framer-motion": "^12.4.3",
@@ -21,7 +22,8 @@
     "react-router-dom": "^7.1.5",
     "split-type": "^0.3.4",
     "styled-components": "^6.1.15",
-    "tailwindcss": "^4.0.6"
+    "tailwindcss": "^4.0.6",
+    "vite-plugin-static-copy": "^2.2.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.19.0",
