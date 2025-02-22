@@ -10,6 +10,8 @@ import "./App.css";
 const App = () => {
   const location = useLocation(); // Get current path
 
+  const isContactPage = location.hash.replace(/\/$/, "") === "#/contact";
+  
   return (
     <>
       <Header />
@@ -21,7 +23,7 @@ const App = () => {
           <Route path="/contact" element={<ContactMe />} />
         </Routes>
       </main>
-      {location.pathname !== "/contact" && <Footer />} {/* Hide footer on contact page */}
+      {!isContactPage && <Footer />} {/* Hide footer on contact page */}
     </>
   );
 };

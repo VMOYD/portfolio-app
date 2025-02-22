@@ -1,0 +1,5 @@
+# Build the Docker image with a tag 'portfolio-app'
+docker build -t portfolio-app .
+
+# Run the container mapping container's port 80 to host's port 8080 (change as needed)
+docker run -d -p 8080:80 portfolio-app

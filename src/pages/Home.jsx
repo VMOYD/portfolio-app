@@ -203,7 +203,7 @@ const Home = () => {
               Check out my About section!
             </h4>
             <a
-              href="/#/about/"
+              href="#/about/"
               style={{
                 display: "inline-block",
                 backgroundColor: "#ffcc66",

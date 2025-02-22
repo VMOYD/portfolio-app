@@ -54,6 +54,29 @@ const Projects = () => {
           </motion.a>
         ))}
       </Grid>
+      <div style={{ marginTop: "4rem", textAlign: "center" }}>
+            <h4 style={{ color: "#ffcc66", fontSize: "1.8rem", marginBottom: "1rem", marginTop: "20%"}}>
+              Contact ME !
+            </h4>
+            <a
+              href="#/contact/"
+              style={{
+                display: "inline-block",
+                backgroundColor: "#ffcc66",
+                color: "#000",
+                padding: "0.8rem 1.5rem",
+                borderRadius: "0.5rem",
+                textDecoration: "none",
+                fontWeight: "bold",
+                boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+                transition: "background-color 0.3s ease",
+              }}
+              onMouseEnter={e => (e.currentTarget.style.backgroundColor = "#ffc107")}
+              onMouseLeave={e => (e.currentTarget.style.backgroundColor = "#ffcc66")}
+            >
+              Contact
+            </a>
+          </div>
     </Section>
   );
 };

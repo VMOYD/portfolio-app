@@ -181,7 +181,7 @@ const About = () => {
               Check out my Project section!
             </h4>
             <a
-              href="/#/projects/"
+              href="#/projects/"
               style={{
                 display: "inline-block",
                 backgroundColor: "#ffcc66",
