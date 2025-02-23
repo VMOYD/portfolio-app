@@ -50,8 +50,8 @@ Check out my portfolio: [Live Website](https://vmoyd.github.io/portfolio-app/)
 ## 📬 Contact Me
 📧 Email: [vyomdubeykp@gmail.com](mailto:vyomdubeykp@gmail.com)  
 🔗 LinkedIn: [linkedin.com/in/vyom-dubey](https://www.linkedin.com/in/vyom-dubey/)  
- X: [twitter.com/vyom](https://x.com/dubey_vyom_)  
-💻 GitHub: [github.com/vmoy](https://github.com/vmoy)  
+ X: [x.com/vyom](https://x.com/dubey_vyom_)  
+💻 GitHub: [github.com/vmoyd](https://github.com/vmoyd)  
 
 ---
 
