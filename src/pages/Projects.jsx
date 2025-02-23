@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
-import { FaReact, FaNodeJs, FaHtml5, FaCss3, FaJs, FaPython, FaPhp } from "react-icons/fa";
+import { FaReact, FaNodeJs, FaHtml5, FaCss3, FaJs, FaPython, FaPhp,FaGamepad ,FaFileAlt } from "react-icons/fa";
 import { SiMongodb, SiExpress, SiFirebase, SiHeroku, SiNetlify, SiFlask, SiMysql, SiVite } from "react-icons/si";
 import { FaLayerGroup } from "react-icons/fa";
 import { motion } from "framer-motion";
@@ -23,11 +23,13 @@ const techIcons = {
   PHP: <FaPhp />,
   MySQL: <SiMysql />,
   Vite: <SiVite />,
+  Game: <FaGamepad />,
+  "File I/O": <FaFileAlt />,
 };
 
 const projects = [
   { 
-    name: "Past Preserve", 
+    name: "Past Preserve -- comming Soon", 
     desc: "A digital time capsule web app.", 
     link: "", 
     code: "https://github.com/vyom/past-preserve", 
@@ -41,6 +43,30 @@ const projects = [
     code: "https://github.com/VMOYD/portfolio-app", 
     techstackused: "React, Vite, HTML, CSS, JavaScript, Material-UI",
     techstack: ["React", "HTML", "CSS", "JavaScript", "material-ui"]
+  },
+  { 
+    name: "Sokoban Game", 
+    desc: "A classic puzzle game where you push boxes onto target spots, built using Python and Pygame.", 
+    link: "", 
+    code: "https://github.com/VMOYD/sokoban-game", 
+    techstackused: "Python, Game",
+    techstack: ["Python", "Game"]
+  },
+  { 
+    name: "Library Management System", 
+    desc: "A console-based system to manage books, borrowing, and librarian functions.", 
+    link: "", 
+    code: "https://github.com/VMOYD/library-management-system", 
+    techstackused: "C++, File I/O",
+    techstack: ["C++", "File I/O", "Curses"]
+  },
+  { 
+    name: "VoteX", 
+    desc: "A secure online voting platform.", 
+    link: "", 
+    code: "https://github.com/VMOYD/VoteX", 
+    techstackused: "PHP, MySQL, HTML, CSS, JavaScript",
+    techstack: ["PHP", "MySQL", "HTML", "CSS", "JavaScript"]
   },
   { 
     name: "AI Assistant", 
@@ -57,14 +83,6 @@ const projects = [
     code: "https://github.com/vyom/bgmi-tracker", 
     techstackused: "React, Node.js, Firebase, Material-UI",
     techstack: ["React", "Node.js", "Firebase", "Material-UI"]
-  },
-  { 
-    name: "VoteX", 
-    desc: "A secure online voting platform.", 
-    link: "", 
-    code: "https://github.com/VMOYD/VoteX", 
-    techstackused: "PHP, MySQL, HTML, CSS, JavaScript",
-    techstack: ["PHP", "MySQL", "HTML", "CSS", "JavaScript"]
   },
 ];
 
