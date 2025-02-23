@@ -1,10 +1,11 @@
-
+import { useState } from "react";
 import styled from "styled-components";
-import { FaReact, FaNodeJs, FaHtml5, FaCss3, FaJs, FaPython } from "react-icons/fa";
-import { SiMongodb, SiExpress, SiFirebase, SiHeroku, SiNetlify, SiFlask } from "react-icons/si";
+import { FaReact, FaNodeJs, FaHtml5, FaCss3, FaJs, FaPython, FaPhp } from "react-icons/fa";
+import { SiMongodb, SiExpress, SiFirebase, SiHeroku, SiNetlify, SiFlask, SiMysql, SiVite } from "react-icons/si";
 import { FaLayerGroup } from "react-icons/fa";
 import { motion } from "framer-motion";
 
+// Icons mapping
 const techIcons = {
   React: <FaReact />,
   "Node.js": <FaNodeJs />,
@@ -19,28 +20,67 @@ const techIcons = {
   HTML: <FaHtml5 />,
   CSS: <FaCss3 />,
   JavaScript: <FaJs />,
+  PHP: <FaPhp />,
+  MySQL: <SiMysql />,
+  Vite: <SiVite />,
 };
 
 const projects = [
-  { name: "Past Preserve", desc: "A digital time capsule web app.", link: "#", techstackused: "React, Node.js, MongoDB, Express.js, Firebase, Material-UI, Heroku, Netlify" },
-  { name: "AI Assistant", desc: "An AI-powered browser extension.", link: "#", techstackused: "Python, Flask, HTML, CSS, JavaScript, Heroku, Netlify" },
-  { name: "BGMI Live Tracker", desc: "A real-time game stats dashboard.", link: "#", techstackused: "React, Node.js, MongoDB, Express.js, Firebase, Material-UI, Heroku, Netlify" },
-  { name: "Online Voting System", desc: "A secure online voting platform.", link: "#", techstackused: "React, Node.js, MongoDB, Express.js, Firebase, Material-UI, Heroku, Netlify" },
+  { 
+    name: "Past Preserve", 
+    desc: "A digital time capsule web app.", 
+    link: "", 
+    code: "https://github.com/vyom/past-preserve", 
+    techstackused: "React, Node.js, MongoDB, Express.js, Firebase",
+    techstack: ["React", "Node.js", "MongoDB", "Express.js", "Firebase"]
+  },
+  { 
+    name: "Portfolio", 
+    desc: "My personal portfolio website.", 
+    link: "https://vmoyd.github.io/portfolio-app/", 
+    code: "https://github.com/VMOYD/portfolio-app", 
+    techstackused: "React, Vite, HTML, CSS, JavaScript, Material-UI",
+    techstack: ["React", "HTML", "CSS", "JavaScript", "material-ui"]
+  },
+  { 
+    name: "AI Assistant", 
+    desc: "An AI-powered browser extension.", 
+    link: "https://ai-assistant.com", 
+    code: "https://github.com/vyom/ai-assistant", 
+    techstackused: "Python, Flask, HTML, CSS, JavaScript",
+    techstack: ["Python", "Flask", "HTML", "CSS", "JavaScript"]
+  },
+  { 
+    name: "BGMI Live Tracker", 
+    desc: "A real-time game stats dashboard.", 
+    link: "", 
+    code: "https://github.com/vyom/bgmi-tracker", 
+    techstackused: "React, Node.js, Firebase, Material-UI",
+    techstack: ["React", "Node.js", "Firebase", "Material-UI"]
+  },
+  { 
+    name: "VoteX", 
+    desc: "A secure online voting platform.", 
+    link: "", 
+    code: "https://github.com/VMOYD/VoteX", 
+    techstackused: "PHP, MySQL, HTML, CSS, JavaScript",
+    techstack: ["PHP", "MySQL", "HTML", "CSS", "JavaScript"]
+  },
 ];
 
 const Projects = () => {
+  const [selectedProject, setSelectedProject] = useState(null);
+
   return (
     <Section id="projects">
       <Title>Projects</Title>
       <Grid>
         {projects.map((project, index) => (
-          <motion.a 
+          <motion.div 
             key={index}
-            href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.98 }}
+            onClick={() => setSelectedProject(project)}
           >
             <Card>
               <ProjectTitle>{project.name}</ProjectTitle>
@@ -51,39 +91,36 @@ const Projects = () => {
                 ))}
               </TechStack>
             </Card>
-          </motion.a>
+          </motion.div>
         ))}
       </Grid>
-      <div style={{ marginTop: "4rem", textAlign: "center" }}>
-            <h4 style={{ color: "#ffcc66", fontSize: "1.8rem", marginBottom: "1rem", marginTop: "20%"}}>
-              Contact ME !
-            </h4>
-            <a
-              href="#/contact/"
-              style={{
-                display: "inline-block",
-                backgroundColor: "#ffcc66",
-                color: "#000",
-                padding: "0.8rem 1.5rem",
-                borderRadius: "0.5rem",
-                textDecoration: "none",
-                fontWeight: "bold",
-                boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-                transition: "background-color 0.3s ease",
-              }}
-              onMouseEnter={e => (e.currentTarget.style.backgroundColor = "#ffc107")}
-              onMouseLeave={e => (e.currentTarget.style.backgroundColor = "#ffcc66")}
-            >
-              Contact
-            </a>
-          </div>
+
+      {/* Modal */}
+      {selectedProject && (
+        <ModalOverlay onClick={() => setSelectedProject(null)}>
+          <ModalContent onClick={(e) => e.stopPropagation()}>
+            <CloseButton onClick={() => setSelectedProject(null)}>✖</CloseButton>
+            <h2>{selectedProject.name}</h2>
+            <p>{selectedProject.desc}</p>
+            <TechStack>
+              {selectedProject.techstackused.split(", ").map((tech, i) => (
+                <TechIcon key={i}>{techIcons[tech] || tech}</TechIcon>
+              ))}
+            </TechStack>
+            <p>
+              <strong>Status:</strong> {selectedProject.link ? <LiveLink href={selectedProject.link} target="_blank">Live 🔴</LiveLink> : <span>Not Live ❌</span>}
+            </p>
+            <CodeLink href={selectedProject.code} target="_blank">View Code</CodeLink>
+          </ModalContent>
+        </ModalOverlay>
+      )}
     </Section>
   );
 };
 
 export default Projects;
 
-// 🌙 Styled Components for Dark Mode
+// Styled Components
 const Section = styled.section`
   min-height: 100vh;
   display: flex;
@@ -97,7 +134,7 @@ const Section = styled.section`
 const Title = styled.h1`
   font-size: 2.5rem;
   font-weight: bold;
-  color:rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
   margin-bottom: 2rem;
   text-align: center;
   text-shadow: 0px 0px 10px #9b51e0;
@@ -120,6 +157,7 @@ const Card = styled.div`
   color: white;
   box-shadow: 0px 0px 15px rgba(155, 81, 224, 0.4);
   transition: 0.3s;
+  cursor: pointer;
 
   &:hover {
     transform: scale(1.05);
@@ -158,3 +196,58 @@ const TechIcon = styled.span`
     filter: drop-shadow(0px 0px 12px rgba(155, 81, 224, 1));
   }
 `;
+
+// Modal Styles
+const ModalOverlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+`;
+
+const ModalContent = styled.div`
+  background: #1e1e1e;
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0px 0px 15px rgba(155, 81, 224, 0.5);
+  max-width: 500px;
+  width: 90%;
+  color: white;
+`;
+
+const CloseButton = styled.button`
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+`;
+
+const LiveLink = styled.a`
+  color: #66ff66;
+  font-weight: bold;
+  text-decoration: none;
+  margin-left: 5px;
+`;
+
+const CodeLink = styled.a`
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: #ffcc66;
+  color: #000;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+`;
+
