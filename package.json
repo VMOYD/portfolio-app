@@ -23,6 +23,7 @@
     "split-type": "^0.3.4",
     "styled-components": "^6.1.15",
     "tailwindcss": "^4.0.6",
+    "tech-stack-icons": "^2.1.0",
     "vite-plugin-static-copy": "^2.2.0"
   },
   "devDependencies": {

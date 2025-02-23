@@ -1,31 +1,30 @@
 import { useState } from "react";
 import styled from "styled-components";
-import { FaReact, FaNodeJs, FaHtml5, FaCss3, FaJs, FaPython, FaPhp,FaGamepad ,FaFileAlt } from "react-icons/fa";
-import { SiMongodb, SiExpress, SiFirebase, SiHeroku, SiNetlify, SiFlask, SiMysql, SiVite } from "react-icons/si";
-import { FaLayerGroup } from "react-icons/fa";
 import { motion } from "framer-motion";
-
-// Icons mapping
-const techIcons = {
-  React: <FaReact />,
-  "Node.js": <FaNodeJs />,
-  MongoDB: <SiMongodb />,
-  "Express.js": <SiExpress />,
-  Firebase: <SiFirebase />,
-  "Material-UI": <FaLayerGroup />,
-  Heroku: <SiHeroku />,
-  Netlify: <SiNetlify />,
-  Python: <FaPython />,
-  Flask: <SiFlask />,
-  HTML: <FaHtml5 />,
-  CSS: <FaCss3 />,
-  JavaScript: <FaJs />,
-  PHP: <FaPhp />,
-  MySQL: <SiMysql />,
-  Vite: <SiVite />,
-  Game: <FaGamepad />,
-  "File I/O": <FaFileAlt />,
-};
+import ProjectModal from "./ProjectModal";
+// import techIcons from "./TechIcons"; // Import icon mapping
+import { getTechIcon } from "./TechIcons";
+// const techIcons = {
+//     React: 'react',
+//     'Node.js': 'nodejs',
+//     MongoDB: 'mongodb',
+//     'Express.js': 'express',
+//     Firebase: 'firebase',
+//     'Material-UI': 'materialui',
+//     Heroku: 'heroku',
+//     Netlify: 'netlify',
+//     Python: 'python',
+//     Flask: 'flask',
+//     HTML: 'html5',
+//     CSS: 'css3',
+//     JavaScript: 'javascript',
+//     PHP: 'php',
+//     MySQL: 'mysql',
+//     Vite: 'vite',
+//     Game: 'gamepad', // Custom icon
+//     'File I/O': 'file-alt', // Custom icon
+//     // Add more mappings as needed
+//   };
 
 const projects = [
   { 
@@ -35,6 +34,14 @@ const projects = [
     code: "https://github.com/vyom/past-preserve", 
     techstackused: "React, Node.js, MongoDB, Express.js, Firebase",
     techstack: ["React", "Node.js", "MongoDB", "Express.js", "Firebase"]
+  },
+  {
+    "name": "VisionScript",
+    "desc": "An AI-powered project that utilizes OCR and deep learning for image processing using OpenCV, Tesseract OCR, and TensorFlow.",
+    "link": "",
+    "code": "https://github.com/vmoyd/VisionScript",
+    "techstackused": "Python, OpenCV, Tesseract OCR, TensorFlow, Deep Learning, Image Processing",
+    "techstack": ["Python", "OpenCV", "Tesseract OCR", "TensorFlow", "Deep Learning", "Image Processing"]
   },
   { 
     name: "Portfolio", 
@@ -51,6 +58,14 @@ const projects = [
     code: "https://github.com/VMOYD/sokoban-game", 
     techstackused: "Python, Game",
     techstack: ["Python", "Game"]
+  },
+  {
+    "name": "Selenium MultiScraper",
+    "desc": "A high-performance, multi-threaded web scraper for extracting student result data from Bundelkhand University.",
+    "link": "",
+    "code": "https://github.com/vmoyd/selenium-speedscraper",
+    "techstackused": "Python, Selenium, Web Scraping, Multithreading",
+    "techstack": ["Python", "Selenium", "Web Scraping", "Multithreading"]
   },
   { 
     name: "Library Management System", 
@@ -104,8 +119,8 @@ const Projects = () => {
               <ProjectTitle>{project.name}</ProjectTitle>
               <Description>{project.desc}</Description>
               <TechStack>
-                {project.techstackused.split(", ").map((tech, i) => (
-                  <TechIcon key={i}>{techIcons[tech] || tech}</TechIcon>
+                {project.techstack.map((tech, i) => (
+                  <TechIcon key={i}>{getTechIcon(tech)}</TechIcon>
                 ))}
               </TechStack>
             </Card>
@@ -113,25 +128,7 @@ const Projects = () => {
         ))}
       </Grid>
 
-      {/* Modal */}
-      {selectedProject && (
-        <ModalOverlay onClick={() => setSelectedProject(null)}>
-          <ModalContent onClick={(e) => e.stopPropagation()}>
-            <CloseButton onClick={() => setSelectedProject(null)}>✖</CloseButton>
-            <h2>{selectedProject.name}</h2>
-            <p>{selectedProject.desc}</p>
-            <TechStack>
-              {selectedProject.techstackused.split(", ").map((tech, i) => (
-                <TechIcon key={i}>{techIcons[tech] || tech}</TechIcon>
-              ))}
-            </TechStack>
-            <p>
-              <strong>Status:</strong> {selectedProject.link ? <LiveLink href={selectedProject.link} target="_blank">Live 🔴</LiveLink> : <span>Not Live ❌</span>}
-            </p>
-            <CodeLink href={selectedProject.code} target="_blank">View Code</CodeLink>
-          </ModalContent>
-        </ModalOverlay>
-      )}
+      {selectedProject && <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />}
     </Section>
   );
 };
@@ -152,7 +149,7 @@ const Section = styled.section`
 const Title = styled.h1`
   font-size: 2.5rem;
   font-weight: bold;
-  color: rgb(255, 255, 255);
+  color: white;
   margin-bottom: 2rem;
   text-align: center;
   text-shadow: 0px 0px 10px #9b51e0;
@@ -173,8 +170,6 @@ const Card = styled.div`
   border-radius: 12px;
   text-align: center;
   color: white;
-  box-shadow: 0px 0px 15px rgba(155, 81, 224, 0.4);
-  transition: 0.3s;
   cursor: pointer;
 
   &:hover {
@@ -185,7 +180,6 @@ const Card = styled.div`
 
 const ProjectTitle = styled.h3`
   font-size: 1.4rem;
-  font-weight: bold;
   color: #9b51e0;
   margin-bottom: 0.5rem;
 `;
@@ -207,65 +201,4 @@ const TechIcon = styled.span`
   font-size: 2rem;
   color: #9b51e0;
   transition: 0.3s;
-  filter: drop-shadow(0px 0px 8px rgba(155, 81, 224, 0.6));
-
-  &:hover {
-    transform: scale(1.2);
-    filter: drop-shadow(0px 0px 12px rgba(155, 81, 224, 1));
-  }
 `;
-
-// Modal Styles
-const ModalOverlay = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-`;
-
-const ModalContent = styled.div`
-  background: #1e1e1e;
-  padding: 2rem;
-  border-radius: 10px;
-  text-align: center;
-  box-shadow: 0px 0px 15px rgba(155, 81, 224, 0.5);
-  max-width: 500px;
-  width: 90%;
-  color: white;
-`;
-
-const CloseButton = styled.button`
-  background: none;
-  border: none;
-  color: white;
-  font-size: 1.5rem;
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  cursor: pointer;
-`;
-
-const LiveLink = styled.a`
-  color: #66ff66;
-  font-weight: bold;
-  text-decoration: none;
-  margin-left: 5px;
-`;
-
-const CodeLink = styled.a`
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 0.5rem 1rem;
-  background: #ffcc66;
-  color: #000;
-  border-radius: 5px;
-  text-decoration: none;
-  font-weight: bold;
-`;
-
