@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+// Import useNavigate from react-router-dom
+import { useNavigate } from "react-router-dom";
 // Fix the imports to match your actual project structure
 import ProjectModal from "./ProjectModal"; 
 import { getTechIcon } from "./TechIcons";
@@ -89,6 +91,13 @@ const shineKeyframes = `
 
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
+  // Add navigate hook to use for routing
+  const navigate = useNavigate();
+
+  // Replace scrollToContact with navigateToContact
+  const navigateToContact = () => {
+    navigate('/contact');
+  };
 
   return (
     <section 
@@ -256,6 +265,50 @@ const Projects = () => {
             </motion.div>
           ))}
         </div>
+        
+        {/* Contact Button - updated to use navigate */}
+        <motion.div
+          className="flex justify-center mt-16 mb-8"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
+          <motion.button
+            onClick={navigateToContact}
+            className="relative overflow-hidden group bg-transparent text-amber-400 px-8 py-4 rounded-lg font-bold shadow-lg border border-amber-400 transition-all duration-300"
+            whileHover={{ 
+              scale: 1.05, 
+              boxShadow: "0 0 20px rgba(255, 153, 102, 0.6)",
+              backgroundColor: "rgba(255, 153, 102, 0.1)"
+            }}
+            style={{
+              textShadow: "0 0 5px rgba(255, 153, 102, 0.7)"
+            }}
+          >
+            <span className="relative z-10 flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              Get In Touch
+            </span>
+            
+            {/* Shine effect on hover */}
+            <div 
+              className="absolute inset-0 opacity-0 group-hover:opacity-100"
+              style={{
+                background: "linear-gradient(45deg, transparent 45%, rgba(255, 153, 102, 0.2) 50%, transparent 55%)",
+                animation: "shine 3s infinite",
+              }}
+            />
+            
+            {/* Animated border corners */}
+            <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-amber-400"></div>
+            <div className="absolute top-0 right-0 w-3 h-3 border-t border-r border-amber-400"></div>
+            <div className="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-amber-400"></div>
+            <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-amber-400"></div>
+          </motion.button>
+        </motion.div>
       </div>
 
       {/* Project Modal */}
