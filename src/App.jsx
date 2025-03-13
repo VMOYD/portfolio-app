@@ -1,4 +1,5 @@
 import { Routes, Route, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -11,6 +12,11 @@ const App = () => {
   const location = useLocation(); // Get current path
 
   const isContactPage = location.hash.replace(/\/$/, "") === "#/contact";
+  
+  // Scroll to top when route changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname, location.hash]);
   
   return (
     <>
