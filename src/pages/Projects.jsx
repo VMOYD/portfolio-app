@@ -308,6 +308,7 @@ const Projects = () => {
             <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-amber-400"></div>
           </motion.button>
         </motion.div>
+
       </div>
 
       {/* Project Modal */}

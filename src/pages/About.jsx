@@ -256,7 +256,7 @@ const About = () => {
         </div>
         
         {/* Projects CTA section with enhanced animations - updated to match Home.jsx style */}
-        <motion.div 
+        {/* <motion.div 
           className="mt-20 text-center relative"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -301,7 +301,7 @@ const About = () => {
               </motion.span>
             </Link>
           </motion.div>
-        </motion.div>
+        </motion.div> */}
       </div>
       
       {/* Add required CSS for animations */}

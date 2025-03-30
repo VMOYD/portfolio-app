@@ -6,6 +6,7 @@ import About from "./pages/About";
 import Projects from "./pages/Projects";
 import ContactMe from "./pages/Contact";
 import Footer from "./components/Footer";
+import Certificates from "./pages/Certificate";
 import "./App.css";
 
 const App = () => {
@@ -24,8 +25,8 @@ const App = () => {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/projects" element={<Projects />} />
+          <Route path="/about" element={<> <About /> <Certificates/> </>} />
+          <Route path="/projects" element={<Projects />  } />
           <Route path="/contact" element={<ContactMe />} />
         </Routes>
       </main>
