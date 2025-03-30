@@ -11,7 +11,7 @@ const projects = [
     name: "Past Preserve -- Coming Soon", 
     desc: "A digital time capsule web app.", 
     link: "", 
-    code: "https://github.com/vyom/past-preserve", 
+    code: "", 
     techstackused: "React.js, Node.js, MongoDB, Express.js, Firebase",
     techstackicons: ["reactjs", "nodejs", "mongodb", "expressjs", "firebase"]
   },
@@ -63,22 +63,24 @@ const projects = [
     techstackused: "PHP, MySQL, HTML5, CSS3, JavaScript",
     techstackicons: ["php", "mysql", "html5", "css3", "js"]
   },
-  { 
-    name: "AI Assistant", 
-    desc: "An AI-powered browser extension.", 
-    link: "https://ai-assistant.com", 
-    code: "https://github.com/vyom/ai-assistant", 
-    techstackused: "Python, Flask, HTML5, CSS3, JavaScript",
-    techstackicons: ["python", "flask", "html5", "css3", "js"]
+  {
+    name: "Intrustion Detection System",
+    desc: "A system to detect network intrusions using machine learning.",
+    link: "",
+    code:"",
+    techstackused: "Python, Machine Learning,",
+    techstackicons: ["python"]
   },
-  { 
-    name: "BGMI Live Tracker", 
-    desc: "A real-time game stats dashboard.", 
-    link: "", 
-    code: "https://github.com/vyom/bgmi-tracker", 
-    techstackused: "React.js, Node.js, Firebase, Material-UI",
-    techstackicons: ["reactjs", "nodejs", "firebase", "materialui"]
-  },
+  {
+    name: "Code Visualizer VScode Extension",
+    desc: "A VSCode extension that visualizes code structure and flow.",
+    link: "",
+    code: "https://github.com/VMOYD/Code-Visualizer-VS-code-Extention-",
+    techstackused: "JavaScript, TypeScript, VSCode API",
+    techstackicons: ["js", "typescript"]
+  }
+
+  
 ];
 
 // Add CSS animation for shine effect to your main stylesheet or inline styles
@@ -191,7 +193,7 @@ const Projects = () => {
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
               onClick={() => setSelectedProject(project)}
-              className="relative cursor-pointer group"
+              className="relative cursor-pointer group transition-all duration-300 hover:shadow-lg hover:shadow-amber-500/30 hover:border-amber-500/50"
             >
               <div className="relative p-6 bg-black/60 backdrop-blur-md rounded-lg border border-amber-900/50 overflow-hidden h-full">
                 {/* Hover glow effect */}
@@ -202,7 +204,6 @@ const Projects = () => {
                 <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-amber-400"></div>
                 <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-amber-400"></div>
                 <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-amber-400"></div>
-                
                 {/* Content */}
                 <h3 className="text-xl font-semibold text-amber-400 mb-2 relative z-10">
                   {project.name}
@@ -242,7 +243,7 @@ const Projects = () => {
                 {/* View Project Button - only shown if links exist */}
                 {(project.link || project.code) && (
                   <motion.div 
-                    className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity"
+                    className="absolute bottom-4 right-4 opacity-100 transition-opacity"
                     whileHover={{ scale: 1.1 }}
                   >
                     <div className="h-8 w-8 rounded-full bg-amber-500/20 flex items-center justify-center border border-amber-500/50">
@@ -293,7 +294,6 @@ const Projects = () => {
               Get In Touch
             </span>
             
-            {/* Shine effect on hover */}
             <div 
               className="absolute inset-0 opacity-0 group-hover:opacity-100"
               style={{
@@ -302,7 +302,6 @@ const Projects = () => {
               }}
             />
             
-            {/* Animated border corners */}
             <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-amber-400"></div>
             <div className="absolute top-0 right-0 w-3 h-3 border-t border-r border-amber-400"></div>
             <div className="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-amber-400"></div>
