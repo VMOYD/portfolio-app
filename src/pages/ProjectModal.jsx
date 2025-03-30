@@ -1,6 +1,65 @@
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import ReactMarkdown from "react-markdown";
+import PropTypes from "prop-types";
 
 const ProjectModal = ({ project, onClose }) => {
+  console.log("ProjectModal", project);
+  const [readmeContent, setReadmeContent] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+  
+  useEffect(() => {
+    if (!project?.code) return;
+    
+    const fetchReadme = async () => {
+      setIsLoading(true);
+      setError(null);
+      
+      try {
+        // Convert GitHub URL to API URL format
+        const repoUrl = project.code;
+        const apiUrl = repoUrl.replace('github.com', 'api.github.com/repos') + '/readme';
+        
+        const response = await fetch(apiUrl);
+        
+        if (!response.ok) {
+          throw new Error(`Failed to fetch README: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        
+        // The content is base64 encoded, so we need to decode it
+        if (data.content && data.encoding === 'base64') {
+          // Properly decode base64 content with UTF-8 support for emojis
+          const base64 = data.content.replace(/\n/g, '');
+          const binary = atob(base64);
+          const bytes = new Uint8Array(binary.length);
+          
+          for (let i = 0; i < binary.length; i++) {
+            bytes[i] = binary.charCodeAt(i);
+          }
+          
+          // Convert bytes to UTF-8 string
+          const decodedContent = new TextDecoder('utf-8').decode(bytes);
+          
+          // Ensure Markdown line breaks are properly preserved
+          // This ensures ReactMarkdown renders newlines correctly
+          setReadmeContent(decodedContent);
+        } else {
+          throw new Error('Unexpected response format from GitHub API');
+        }
+      } catch (err) {
+        setError(err.message);
+        console.error('Error fetching README:', err);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    
+    fetchReadme();
+  }, [project]);
+  
   if (!project) return null;
   
   return (
@@ -44,7 +103,7 @@ const ProjectModal = ({ project, onClose }) => {
       </div>
       
       <motion.div 
-        className="relative bg-black/60 backdrop-blur-md p-8 rounded-lg border border-amber-900/50 max-w-2xl w-full mx-4 overflow-hidden"
+        className="relative bg-black/60 backdrop-blur-md p-8 rounded-lg border border-amber-900/50 max-w-4xl w-full mx-4 overflow-y-auto max-h-[80vh]"
         initial={{ scale: 0.9, y: 20 }}
         animate={{ scale: 1, y: 0 }}
         exit={{ scale: 0.9, y: 20 }}
@@ -57,18 +116,18 @@ const ProjectModal = ({ project, onClose }) => {
         {/* Animated border corners */}
         <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-amber-400"></div>
         <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-amber-400"></div>
-        <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-amber-400"></div>
-        <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-amber-400"></div>
+        {/* <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-amber-400"></div>
+        <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-amber-400"></div> */}
         
         {/* Shine effect */}
-        <div 
+        {/* <div 
           className="absolute inset-0"
           style={{
             background: "linear-gradient(45deg, transparent 45%, rgba(255, 153, 102, 0.1) 50%, transparent 55%)",
             animation: "shine 3s infinite",
             zIndex: -1
           }}
-        ></div>
+        ></div> */}
         
         {/* Close button */}
         <motion.button 
@@ -116,12 +175,46 @@ const ProjectModal = ({ project, onClose }) => {
           <p className="text-gray-400">{project.techstackused || "Various technologies"}</p>
         </motion.div>
         
+        {/* README Content Section */}
+        {project.code && (
+          <motion.div
+            className="mt-8 border-t border-amber-900/50 pt-6"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5, duration: 0.4 }}
+          >
+            <h3 className="text-lg font-semibold text-amber-300 mb-4">For Nerds:</h3>
+            
+            {isLoading && (
+              <div className="flex items-center justify-center py-8">
+                <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-amber-400"></div>
+                <span className="ml-3 text-amber-300">Loading project details...</span>
+              </div>
+            )}
+            
+            {error && (
+              <div className="bg-red-900/20 border border-red-800 p-4 rounded-md text-red-300">
+                <p>Could not load README: {error}</p>
+              </div>
+            )}
+            
+            {!isLoading && !error && readmeContent && (
+              <div className="markdown-content bg-black/30 rounded-md p-4 text-gray-300 prose prose-invert prose-sm max-w-none overflow-x-auto">
+                <div className="prose prose-invert max-w-none"
+                  style={{ overflowY: "auto" }}>
+                  <ReactMarkdown>{readmeContent}</ReactMarkdown>
+                </div>
+              </div>
+            )}
+          </motion.div>
+        )}
+        
         {/* Action links */}
         <motion.div 
-          className="flex flex-wrap gap-4 justify-center mt-6"
+          className="flex flex-wrap gap-4 justify-center mt-8"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.4 }}
+          transition={{ delay: 0.6, duration: 0.4 }}
         >
           {project.link && (
             <motion.a 
@@ -160,25 +253,31 @@ const ProjectModal = ({ project, onClose }) => {
           )}
         </motion.div>
         
-        {/* Scanline effect */}
-        <motion.div 
-          className="absolute inset-0 pointer-events-none opacity-5"
+        {/* Code pattern background effect */}
+        {/* <div 
+          className="absolute inset-0 opacity-5 pointer-events-none"
           style={{
-            background: "linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.5) 50%)",
-            backgroundSize: "100% 4px"
+            backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 40 L40 20 L45 25 L30 40 L45 55 L40 60z' fill='%23ffb74d' /%3E%3Cpath d='M60 40 L80 20 L75 25 L60 40 L75 55 L80 60z' fill='%23ffb74d' /%3E%3C/svg%3E\")",
+            backgroundSize: "100px 100px",
+            zIndex: -1
           }}
-          animate={{
-            backgroundPosition: ["0px 0px", "0px 100px"]
-          }}
-          transition={{
-            repeat: Infinity,
-            duration: 10,
-            ease: "linear"
-          }}
-        />
+        /> */}
+        <div className="absolute inset-0 opacity-5 pointer-events-none"></div>
+
       </motion.div>
     </motion.div>
   );
+};
+
+ProjectModal.propTypes = {
+  project: PropTypes.shape({
+    name: PropTypes.string,
+    desc: PropTypes.string,
+    techstackused: PropTypes.string,
+    link: PropTypes.string,
+    code: PropTypes.string
+  }),
+  onClose: PropTypes.func.isRequired
 };
 
 export default ProjectModal;

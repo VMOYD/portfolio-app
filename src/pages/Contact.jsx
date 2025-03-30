@@ -108,7 +108,7 @@ const ContactMe = () => {
             <FaLinkedin className="text-3xl md:text-4xl" />
           </SocialLink>
           
-          <SocialLink href="https://twitter.com/vyom" aria-label="Twitter">
+          <SocialLink href="https://x.com/dubey_vyom_" aria-label="Twitter">
             <FaTwitter className="text-3xl md:text-4xl" />
           </SocialLink>
           
@@ -157,7 +157,7 @@ const ContactMe = () => {
             </motion.a>
             
             <motion.a
-              href="https://drive.google.com/file/d/12TwsERo0RSMUz0tfU57E1Gd4P2QtRO3M/view?usp=sharing"
+              href="https://drive.google.com/file/d/1O5s829OiJKFRWuEbRPIg_G2XDuEjDAbP/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-transparent text-amber-400 px-6 py-3 rounded-lg font-bold shadow-lg border border-amber-400 transition-all duration-300"

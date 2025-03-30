@@ -304,15 +304,7 @@ const TechStackDisplay = () => {
         ))}
       </motion.div>
       
-      {/* Mobile note */}
-      <motion.div 
-        className="mt-10 text-sm text-gray-400 text-center relative z-10"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.7 }}
-        transition={{ delay: 2 }}
-      >
-        <p>Mobile-optimized: Grid and animations adapt to screen size</p>
-      </motion.div>
+      
     </div>
   );
 };

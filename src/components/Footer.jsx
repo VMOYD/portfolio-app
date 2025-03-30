@@ -62,7 +62,7 @@ const Footer = () => {
       
       {/* Copyright */}
       <div className="relative">
-        <p className="text-gray-400 text-sm">© Vyom Dubey</p>
+        <p className="text-gray-400 text-sm">© Vyom Dubey 2025</p>
         <div className="absolute -inset-1 bg-cyan-500 opacity-0 hover:opacity-10 blur-md rounded-full -z-10 transition-opacity duration-300"></div>
       </div>
       
