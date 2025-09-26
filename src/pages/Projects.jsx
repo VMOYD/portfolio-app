@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 // Fix the imports to match your actual project structure
 import ProjectModal from "./ProjectModal"; 
 import { getTechIcon } from "./TechIcons";
+import StructuredData from "../components/StructuredData";
+import { ProjectSchema } from "../utils/schemas";
 
 const projects = [
   { 
@@ -102,15 +104,37 @@ const Projects = () => {
   };
 
   return (
-    <section 
-      id="projects" 
-      className="min-h-screen flex flex-col items-center justify-center overflow-hidden relative"
-      style={{
-        background: "radial-gradient(circle at center, #0f1523 0%, #000000 100%)",
-        position: "relative",
-        padding: "6rem 2rem"
-      }}
-    >
+    <>
+      <StructuredData schema={{
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Vyom Dubey's Software Projects",
+        "description": "A collection of innovative software projects by Vyom Dubey",
+        "itemListElement": projects.map((project, index) => ({
+          "@type": "SoftwareApplication",
+          "position": index + 1,
+          "name": project.name,
+          "description": project.desc,
+          "url": project.link || project.code,
+          "applicationCategory": "DeveloperApplication",
+          "author": {
+            "@type": "Person",
+            "name": "Vyom Dubey"
+          }
+        }))
+      }} />
+      
+      <section 
+        id="projects" 
+        className="min-h-screen flex flex-col items-center justify-center overflow-hidden relative"
+        style={{
+          background: "radial-gradient(circle at center, #0f1523 0%, #000000 100%)",
+          position: "relative",
+          padding: "6rem 2rem"
+        }}
+        role="main"
+        aria-label="Software development projects by Vyom Dubey"
+      >
       {/* Add keyframes to document */}
       <style dangerouslySetInnerHTML={{ __html: shineKeyframes }} />
       
@@ -314,6 +338,7 @@ const Projects = () => {
       {/* Project Modal */}
       {selectedProject && <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />}
     </section>
+    </>
   );
 };
 

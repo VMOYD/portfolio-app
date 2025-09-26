@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import StructuredData from "../components/StructuredData";
+import { PersonSchema, FAQSchema } from "../utils/schemas";
 
 // Timeline Data
 const timeline = [
@@ -62,14 +64,20 @@ const About = () => {
   }, []);
 
   return (
-    <section 
-      id="about" 
-      className="min-h-screen flex flex-col items-center justify-center overflow-hidden relative"
-      style={{
-        background: "radial-gradient(circle at center, #0f1523 0%, #000000 100%)",
-        position: "relative"
-      }}
-    >
+    <>
+      <StructuredData schema={PersonSchema} />
+      <StructuredData schema={FAQSchema} />
+      
+      <section 
+        id="about" 
+        className="min-h-screen flex flex-col items-center justify-center overflow-hidden relative"
+        style={{
+          background: "radial-gradient(circle at center, #0f1523 0%, #000000 100%)",
+          position: "relative"
+        }}
+        role="main"
+        aria-label="About Vyom Dubey - Professional background and career journey"
+      >
       {/* Grid background - matched from Home.jsx */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Horizontal lines */}
@@ -324,6 +332,7 @@ const About = () => {
         }
       `}</style>
     </section>
+    </>
   );
 };
 
