@@ -5,7 +5,14 @@ import { Link } from "react-router-dom";
 // Timeline Data
 const timeline = [
   {
-    year: "2024-Present",
+    year: "2025-Present",
+    title: "Software Engineer-2",
+    desc: "After my AI internship at NetApp, I was converted to a Software Developer on Cloud Volume Service, primarily working on Azure NetApp Files.",
+    iconPath: "icons8-netapp-logo.svg",
+    path: "https://www.netapp.com/products/cloud-services/cloud-volumes/",
+  },
+  {
+    year: "2024-2025",
     title: "AI Intern",
     desc: "Currently working as an AI Intern at NetApp, building AI-driven solutions. Diving deep into machine learning, automation, and real-world problem-solving while making models smarter (and hopefully not self-aware).",
     iconPath: "icons8-netapp-logo.svg",

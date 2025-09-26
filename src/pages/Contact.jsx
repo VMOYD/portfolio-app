@@ -157,7 +157,7 @@ const ContactMe = () => {
             </motion.a>
             
             <motion.a
-              href="https://drive.google.com/file/d/1O5s829OiJKFRWuEbRPIg_G2XDuEjDAbP/view?usp=sharing"
+              href="https://drive.google.com/file/d/1Le6HlSSsj40UfJ4xCL2MJK7tCKCp3Xmu/view?usp=drive_link"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-transparent text-amber-400 px-6 py-3 rounded-lg font-bold shadow-lg border border-amber-400 transition-all duration-300"
