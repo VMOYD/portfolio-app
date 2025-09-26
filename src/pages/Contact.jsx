@@ -1,17 +1,24 @@
 import { FaGithub, FaLinkedin, FaTwitter, FaYoutube, FaFileDownload } from "react-icons/fa";
 import { SiLeetcode, SiGeeksforgeeks, SiCodechef } from "react-icons/si";
 import { motion } from "framer-motion";
+import StructuredData from "../components/StructuredData";
+import { PersonSchema } from "../utils/schemas";
 
 const ContactMe = () => {
   return (
-    <section
-      id="contact"
-      className="min-h-screen flex flex-col items-center justify-center overflow-hidden relative"
-      style={{
-        background: "radial-gradient(circle at center, #0f1523 0%, #000000 100%)",
-        position: "relative",
-      }}
-    >
+    <>
+      <StructuredData schema={PersonSchema} />
+      
+      <section
+        id="contact"
+        className="min-h-screen flex flex-col items-center justify-center overflow-hidden relative"
+        style={{
+          background: "radial-gradient(circle at center, #0f1523 0%, #000000 100%)",
+          position: "relative",
+        }}
+        role="main"
+        aria-label="Contact information and social media links for Vyom Dubey"
+      >
       {/* Grid background - matched from Home.jsx */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Horizontal lines */}
@@ -177,6 +184,7 @@ const ContactMe = () => {
         </motion.div>
       </div>
     </section>
+    </>
   );
 };
 

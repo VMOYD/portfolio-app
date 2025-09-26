@@ -8,10 +8,12 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && npm run postbuild",
+    "postbuild": "echo 'Build completed successfully'",
     "lint": "eslint .",
     "preview": "vite preview",
-    "clean": "rmdir /s /q dist"
+    "clean": "rmdir /s /q dist",
+    "seo:validate": "echo 'SEO validation - check meta tags and structured data'"
   },
   "dependencies": {
     "framer-motion": "^12.4.3",

@@ -4,6 +4,8 @@ import gsap from "gsap";
 import SplitType from "split-type";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import TechStackShowcase from "./TechStackDisplay";
+import StructuredData from "../components/StructuredData";
+import { PersonSchema } from "../utils/schemas";
 gsap.registerPlugin(ScrollTrigger);
 
 const Home = () => {
@@ -48,16 +50,20 @@ const Home = () => {
   }, []);
 
   return (
-    <section
-      id="home"
-      ref={sectionRef}
-      className="flex flex-col justify-center items-center text-center bg-black overflow-hidden"
-      style={{
-        background: "radial-gradient(circle at center, #0f1523 0%, #000000 100%)",
-        minHeight: "100vh",
-        position: "relative"
-      }}
-    >
+    <>
+      <StructuredData schema={PersonSchema} />
+      <section
+        id="home"
+        ref={sectionRef}
+        className="flex flex-col justify-center items-center text-center bg-black overflow-hidden"
+        style={{
+          background: "radial-gradient(circle at center, #0f1523 0%, #000000 100%)",
+          minHeight: "100vh",
+          position: "relative"
+        }}
+        role="banner"
+        aria-label="Home page hero section"
+      >
       {/* Grid background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Horizontal lines */}
@@ -116,7 +122,7 @@ const Home = () => {
         className="relative z-10 flex flex-col justify-center items-center w-full"
       >
         {/* Header section */}
-        <div 
+        <header 
           className="z-20 w-full flex justify-center" 
           style={{marginTop: "30vh", marginBottom: "30vh"}}
         >
@@ -129,7 +135,7 @@ const Home = () => {
               textShadow: "0 0 15px rgba(255, 153, 102, 0.7), 0 0 30px rgba(255, 153, 102, 0.5)"
             }}
           >
-            Hey, I&apos;m Vyom! <br /> 
+            <span itemProp="name">Hey, I&apos;m Vyom!</span> <br /> 
             <motion.span
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -153,7 +159,7 @@ const Home = () => {
               ease: "easeInOut"
             }}
           />
-        </div>
+        </header>
         
         {/* Tech stack section */}
         <div className="relative z-10 w-full flex justify-center h-auto mb-20">
@@ -161,18 +167,20 @@ const Home = () => {
         </div>
         
         {/* About me section */}
-        <div className="relative z-10 mt-10text-center min-h-[70vh]">
-          <h3 
+        <article className="relative z-10 mt-10text-center min-h-[70vh]" role="article" aria-label="About Vyom Dubey">
+          <h2 
             ref={h3Ref} 
             className="text-xl mb-20 md:text-2xl font-bold text-white tracking-wide px-4 md:px-0"
             style={{
               textShadow: "0 0 5px rgba(255, 153, 102, 0.3)"
             }}
           >
-            Tech enthusiast with a strong foundation in AI, cybersecurity, and web development. <br />
-            I enjoy creating innovative, user-friendly, and secure applications <br />
-            that solve real-world problems. Always exploring new technologies.
-          </h3>
+            <span itemProp="description">
+              Tech enthusiast with a strong foundation in AI, cybersecurity, and web development. <br />
+              I enjoy creating innovative, user-friendly, and secure applications <br />
+              that solve real-world problems. Always exploring new technologies.
+            </span>
+          </h2>
           
           {/* CTA button */}
           <motion.div 
@@ -216,7 +224,7 @@ const Home = () => {
               Go to About
             </motion.a>
           </motion.div>
-        </div>
+        </article>
       </motion.div>
       
       {/* Scanline effect */}
@@ -236,6 +244,7 @@ const Home = () => {
         }}
       />
     </section>
+    </>
   );
 };
 
