@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  base: '/portfolio-app/',
+  base: '/',
   build: {
     outDir: 'dist',
     // SEO optimizations
@@ -32,7 +32,7 @@ export default defineConfig({
   },
   // Define environment variables
   define: {
-    __SITE_URL__: JSON.stringify('https://vmoyd.github.io/portfolio-app/'),
+    __SITE_URL__: JSON.stringify('https://vyomdubey.com/'),
     __AUTHOR_NAME__: JSON.stringify('Vyom Dubey')
   }
 });
