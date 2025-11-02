@@ -74,18 +74,18 @@ const TechStackTerminal = () => {
             <div className="w-3 h-3 rounded-full bg-green-500"></div>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-text-muted text-sm font-mono">tech-stack.terminal</span>
+            <span className="text-text-muted text-xs sm:text-sm font-mono truncate">tech-stack.terminal</span>
           </div>
-          <div className="w-16"></div> {/* Spacer for centering */}
+          <div className="w-16 sm:w-16"></div> {/* Spacer for centering */}
         </div>
 
         {/* Category Tabs */}
-        <div className="bg-bg-primary px-4 py-2 flex items-center gap-2 overflow-x-auto border-b border-border">
+        <div className="bg-bg-primary px-2 sm:px-4 py-2 flex flex-wrap items-center gap-2 border-b border-border">
           {categories.map((category) => (
             <motion.button
               key={category.key}
               onClick={() => setActiveCategory(category.key)}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all whitespace-nowrap ${
+              className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${
                 activeCategory === category.key
                   ? "bg-brand-primary/20 text-brand-primary border border-brand-primary/40"
                   : "bg-bg-elevated text-text-muted hover:text-text-primary hover:bg-bg-elevated/80"
@@ -93,32 +93,32 @@ const TechStackTerminal = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <span className="mr-2">{category.icon}</span>
-              {category.label}
+              <span className="mr-1 sm:mr-2">{category.icon}</span>
+              <span className="hidden xs:inline">{category.label}</span>
             </motion.button>
           ))}
         </div>
       </div>
 
       {/* Terminal Body - File Tree */}
-      <div className="bg-bg-elevated border-2 border-t-0 border-border rounded-b-2xl p-6 font-mono text-sm h-[420px] flex flex-col">
+      <div className="bg-bg-elevated border-2 border-t-0 border-border rounded-b-2xl p-3 sm:p-6 font-mono text-xs sm:text-sm h-[420px] flex flex-col">
         {/* Command Prompt */}
-        <div className="mb-4 flex items-center gap-2 text-brand-primary flex-shrink-0">
-          <span className="text-brand-secondary">vyom@portfolio</span>
+        <div className="mb-4 flex items-center gap-1 sm:gap-2 text-brand-primary flex-shrink-0 overflow-x-auto">
+          <span className="text-brand-secondary text-xs sm:text-sm">vyom@portfolio</span>
           <span className="text-text-muted">:</span>
-          <span className="text-blue-400">~/tech-stack</span>
+          <span className="text-blue-400 text-xs sm:text-sm truncate">~/tech-stack</span>
           <span className="text-text-muted">$</span>
           <motion.span
-            className="text-text-primary"
+            className="text-text-primary text-xs sm:text-sm whitespace-nowrap"
             animate={{ opacity: [1, 0, 1] }}
             transition={{ duration: 1, repeat: Infinity }}
           >
-            {activeCategory === "all" ? "ls -la" : `cd ${activeCategory} && ls`}
+            {activeCategory === "all" ? "ls -la" : `cd ${activeCategory.substring(2)}`}
           </motion.span>
         </div>
 
         {/* File Tree Structure - Fixed Height with Scroll */}
-        <div className="flex-1 overflow-y-auto pr-2 space-y-1 custom-scrollbar">
+        <div className="flex-1 overflow-y-auto pr-1 sm:pr-2 space-y-1 custom-scrollbar overflow-x-hidden">
           {getFilteredTech().map(([folder, techs], folderIndex) => (
             <motion.div
               key={folder}
@@ -142,34 +142,34 @@ const TechStackTerminal = () => {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: folderIndex * 0.1 + techIndex * 0.05 }}
                   whileHover={{ x: 10, backgroundColor: "rgba(99, 102, 241, 0.05)" }}
-                  className="group flex items-center gap-3 py-2 px-3 rounded-lg transition-all cursor-pointer"
+                  className="group flex items-center gap-2 sm:gap-3 py-2 px-2 sm:px-3 rounded-lg transition-all cursor-pointer"
                 >
                   {/* Tree Branch */}
-                  <span className="text-text-muted">
+                  <span className="text-text-muted flex-shrink-0">
                     {techIndex === techs.length - 1 ? "└──" : "├──"}
                   </span>
 
                   {/* Icon */}
-                  <span className="text-2xl transform group-hover:scale-125 transition-transform">
+                  <span className="text-xl sm:text-2xl transform group-hover:scale-125 transition-transform flex-shrink-0">
                     {tech.icon}
                   </span>
 
                   {/* Tech Name */}
-                  <span className={`${tech.color} font-semibold flex-1`}>
+                  <span className={`${tech.color} font-semibold flex-1 truncate`}>
                     {tech.name}
                   </span>
 
-                  {/* Expertise Level Badge */}
+                  {/* Expertise Level Badge - Hidden on very small screens */}
                   <motion.span
-                    className={`px-3 py-1 rounded-full text-xs font-bold border ${levelColors[tech.level]} border-current opacity-0 group-hover:opacity-100 transition-opacity`}
+                    className={`hidden sm:inline px-2 sm:px-3 py-1 rounded-full text-xs font-bold border ${levelColors[tech.level]} border-current opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0`}
                     initial={{ scale: 0 }}
                     whileHover={{ scale: 1 }}
                   >
                     {tech.level}
                   </motion.span>
 
-                  {/* File extension indicator */}
-                  <span className="text-text-muted text-xs opacity-0 group-hover:opacity-100 transition-opacity">
+                  {/* File extension indicator - Hidden on mobile */}
+                  <span className="hidden md:inline text-text-muted text-xs opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0">
                     .skill
                   </span>
                 </motion.div>
@@ -205,15 +205,15 @@ const TechStackTerminal = () => {
 
       {/* Command Suggestions Below Terminal */}
       <motion.div
-        className="mt-4 flex items-center gap-3 text-text-muted text-sm font-mono px-4"
+        className="mt-4 flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3 text-text-muted text-xs sm:text-sm font-mono px-2 sm:px-4"
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.6 }}
       >
-        <span className="text-brand-primary">💡 Tip:</span>
-        <span>Click tabs to filter by category</span>
-        <span className="hidden md:inline">|</span>
-        <span className="hidden md:inline">Hover over items to see expertise level</span>
+        <span className="text-brand-primary flex-shrink-0">💡 Tip:</span>
+        <span className="text-xs sm:text-sm">Click tabs to filter by category</span>
+        <span className="hidden lg:inline">|</span>
+        <span className="hidden lg:inline text-xs sm:text-sm">Hover over items to see expertise level</span>
       </motion.div>
     </div>
   );

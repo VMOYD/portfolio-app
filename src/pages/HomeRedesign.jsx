@@ -406,10 +406,17 @@ const HomeRedesign = () => {
               transition={{ duration: 0.8 }}
               className="relative"
             >
-              {/* Enhanced visual with royal colors */}
-              <div className="relative aspect-square rounded-2xl bg-gradient-to-br from-brand-primary/30 via-purple-500/20 to-brand-secondary/30 flex items-center justify-center border-2 border-brand-primary/30 shadow-2xl shadow-brand-primary/20">
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-brand-primary/10 to-brand-secondary/10 backdrop-blur-sm"></div>
-                <span className="text-9xl opacity-40 relative z-10">👨‍💻</span>
+              {/* Enhanced visual with royal colors and your photo */}
+              <div className="relative aspect-square rounded-2xl bg-gradient-to-br from-brand-primary/30 via-purple-500/20 to-brand-secondary/30 overflow-hidden border-2 border-brand-primary/30 shadow-2xl shadow-brand-primary/20">
+                {/* Your Photo - crisp and clear */}
+                <img 
+                  src="/photo.jpg" 
+                  alt="Vyom Dubey - Software Development Engineer" 
+                  className="w-full h-full object-cover"
+                />
+                
+                {/* Subtle gradient overlay only at edges - NOT blurring the photo */}
+                <div className="absolute inset-0 bg-gradient-to-t from-bg-primary/40 via-transparent to-transparent pointer-events-none"></div>
                 
                 {/* Animated ring */}
                 <motion.div

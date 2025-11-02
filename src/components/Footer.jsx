@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { FaGithub, FaTwitter, FaLinkedin, FaYoutube } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaYoutube } from "react-icons/fa";
+import { BsTwitterX } from "react-icons/bs";
 import { motion } from "framer-motion";
 
 const Footer = () => {
@@ -23,25 +24,25 @@ const Footer = () => {
       icon: <FaGithub />, 
       url: "https://github.com/VMOYD",
       label: "GitHub",
-      color: "hover:text-brand-primary"
+      hoverColor: "hover:text-gray-300"
     },
     { 
-      icon: <FaTwitter />, 
+      icon: <BsTwitterX />, 
       url: "https://x.com/dubey_vyom_",
-      label: "Twitter",
-      color: "hover:text-brand-primary-light"
+      label: "X (Twitter)",
+      hoverColor: "hover:text-white"
     },
     { 
       icon: <FaLinkedin />, 
       url: "https://www.linkedin.com/in/vyom-dubey/",
       label: "LinkedIn",
-      color: "hover:text-brand-primary"
+      hoverColor: "hover:text-blue-400"
     },
     { 
       icon: <FaYoutube />, 
       url: "https://www.youtube.com/channel/UCpjxHechB6BeyMo4Lcsm9zw?sub_confirmation=1",
       label: "YouTube",
-      color: "hover:text-brand-secondary"
+      hoverColor: "hover:text-red-500"
     }
   ];
 
@@ -75,8 +76,8 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={link.label}
-                className={`text-text-secondary text-2xl transition-colors duration-300 ${link.color}`}
-                whileHover={{ scale: 1.15, y: -2 }}
+                className={`text-text-muted text-2xl transition-all duration-300 ${link.hoverColor}`}
+                whileHover={{ scale: 1.2, y: -3 }}
                 whileTap={{ scale: 0.95 }}
               >
                 {link.icon}
