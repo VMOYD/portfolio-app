@@ -1,4 +1,4 @@
-import{r as D}from"./router-CFz5Ql6-.js";var Xi={exports:{}},je={};/**
+import{r as D}from"./router-B2Xc3CjP.js";var Xi={exports:{}},je={};/**
  * @license React
  * react-jsx-runtime.production.js
  *
