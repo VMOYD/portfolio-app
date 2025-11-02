@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import gsap from "gsap";
 import SplitType from "split-type";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -209,20 +210,21 @@ const Home = () => {
               Check out my About section!
             </motion.h4>
             
-            <motion.a
-              href="#/about/"
-              className="inline-block bg-transparent text-amber-400 px-6 py-3 rounded-lg font-bold shadow-lg border border-amber-400 transition-all duration-300"
-              whileHover={{ 
-                scale: 1.05, 
-                boxShadow: "0 0 15px rgba(255, 153, 102, 0.5)",
-                backgroundColor: "rgba(255, 153, 102, 0.1)"
-              }}
-              style={{
-                textShadow: "0 0 5px rgba(255, 153, 102, 0.7)"
-              }}
-            >
-              Go to About
-            </motion.a>
+            <Link to="/about">
+              <motion.div
+                className="inline-block bg-transparent text-amber-400 px-6 py-3 rounded-lg font-bold shadow-lg border border-amber-400 transition-all duration-300 cursor-pointer"
+                whileHover={{ 
+                  scale: 1.05, 
+                  boxShadow: "0 0 15px rgba(255, 153, 102, 0.5)",
+                  backgroundColor: "rgba(255, 153, 102, 0.1)"
+                }}
+                style={{
+                  textShadow: "0 0 5px rgba(255, 153, 102, 0.7)"
+                }}
+              >
+                Go to About
+              </motion.div>
+            </Link>
           </motion.div>
         </article>
       </motion.div>

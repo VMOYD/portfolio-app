@@ -7,6 +7,7 @@ import Projects from "./pages/Projects";
 import ContactMe from "./pages/Contact";
 import Footer from "./components/Footer";
 import Certificates from "./pages/Certificate";
+import NotFound from "./pages/NotFound";
 import SEO from "./components/SEO";
 import StructuredData from "./components/StructuredData";
 import PerformanceMonitor from "./components/PerformanceMonitor";
@@ -17,15 +18,15 @@ import "./App.css";
 const App = () => {
   const location = useLocation(); // Get current path
 
-  const isContactPage = location.hash.replace(/\/$/, "") === "#/contact";
+  const isContactPage = location.pathname === "/contact";
   
   // Get current route for SEO
   const getCurrentRoute = () => {
-    const path = location.pathname + location.hash;
+    const path = location.pathname;
     if (path === '/' || path === '') return 'home';
-    if (path.includes('/about') || path.includes('#/about')) return 'about';
-    if (path.includes('/projects') || path.includes('#/projects')) return 'projects';
-    if (path.includes('/contact') || path.includes('#/contact')) return 'contact';
+    if (path.includes('/about')) return 'about';
+    if (path.includes('/projects')) return 'projects';
+    if (path.includes('/contact')) return 'contact';
     return 'home';
   };
 
@@ -35,7 +36,7 @@ const App = () => {
   // Scroll to top when route changes
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [location.pathname, location.hash]);
+  }, [location.pathname]);
   
   return (
     <>
@@ -58,6 +59,7 @@ const App = () => {
           <Route path="/about" element={<> <About /> <Certificates/> </>} />
           <Route path="/projects" element={<Projects />  } />
           <Route path="/contact" element={<ContactMe />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
       {!isContactPage && <Footer />} {/* Hide footer on contact page */}

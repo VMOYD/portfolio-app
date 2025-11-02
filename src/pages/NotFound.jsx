@@ -106,7 +106,7 @@ const NotFound = () => {
               </motion.button>
             </Link>
             
-            <Link to="/#/projects">
+            <Link to="/projects">
               <motion.button
                 className="bg-transparent text-white px-8 py-3 rounded-lg font-bold shadow-lg border border-white transition-all duration-300"
                 whileHover={{ 
