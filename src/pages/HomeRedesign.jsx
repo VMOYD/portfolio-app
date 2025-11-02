@@ -45,19 +45,18 @@ const HomeRedesign = () => {
       
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-bg-primary via-bg-secondary to-bg-primary">
-        {/* Animated gradient orbs */}
+        {/* Animated gradient orbs - simplified for performance */}
         <motion.div
           className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-3xl opacity-20"
           style={{
             background: 'radial-gradient(circle, rgba(99, 102, 241, 0.4), rgba(139, 92, 246, 0.2), transparent)',
           }}
           animate={{
-            x: [0, 50, 0],
-            y: [0, 30, 0],
             scale: [1, 1.1, 1],
+            opacity: [0.15, 0.25, 0.15],
           }}
           transition={{
-            duration: 15,
+            duration: 8,
             repeat: Infinity,
             ease: "easeInOut"
           }}
@@ -69,12 +68,11 @@ const HomeRedesign = () => {
             background: 'radial-gradient(circle, rgba(212, 175, 55, 0.3), rgba(251, 191, 36, 0.2), transparent)',
           }}
           animate={{
-            x: [0, -30, 0],
-            y: [0, 50, 0],
-            scale: [1, 1.2, 1],
+            scale: [1, 1.15, 1],
+            opacity: [0.15, 0.25, 0.15],
           }}
           transition={{
-            duration: 12,
+            duration: 10,
             repeat: Infinity,
             ease: "easeInOut"
           }}
@@ -89,32 +87,9 @@ const HomeRedesign = () => {
           backgroundSize: '60px 60px',
         }} />
         
-        {/* Decorative floating shapes */}
-        <motion.div
-          className="absolute top-20 right-20 w-32 h-32 border-2 border-brand-primary/20 rounded-lg rotate-12"
-          animate={{
-            rotate: [12, 24, 12],
-            y: [0, -20, 0],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
-        
-        <motion.div
-          className="absolute bottom-32 left-16 w-24 h-24 border-2 border-brand-secondary/30 rounded-full"
-          animate={{
-            scale: [1, 1.1, 1],
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{
-            duration: 6,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
+        {/* Static decorative shapes - hidden on mobile for performance */}
+        <div className="absolute top-20 right-20 w-32 h-32 border-2 border-brand-primary/20 rounded-lg rotate-12 hidden lg:block" />
+        <div className="absolute bottom-32 left-16 w-24 h-24 border-2 border-brand-secondary/30 rounded-full hidden lg:block" />
         
         <div className="relative z-10 container mx-auto px-6 md:px-12 lg:px-16 text-center">
           <motion.div
@@ -433,18 +408,8 @@ const HomeRedesign = () => {
                 />
               </div>
               
-              {/* Enhanced decorative elements */}
-              <motion.div 
-                className="absolute -top-6 -right-6 w-24 h-24 border-2 border-brand-primary/40 rounded-lg -z-10"
-                animate={{
-                  rotate: [0, 90, 180, 270, 360],
-                }}
-                transition={{
-                  duration: 20,
-                  repeat: Infinity,
-                  ease: "linear"
-                }}
-              />
+              {/* Enhanced decorative elements - static on mobile */}
+              <div className="absolute -top-6 -right-6 w-24 h-24 border-2 border-brand-primary/40 rounded-lg -z-10 rotate-45 hidden md:block" />
               <div className="absolute -bottom-6 -left-6 w-32 h-32 border-2 border-brand-secondary/40 rounded-lg -z-10 rotate-12" />
               
               {/* Glow effects */}
@@ -459,14 +424,8 @@ const HomeRedesign = () => {
         {/* Royal gradient border */}
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-primary via-purple-500 to-brand-secondary"></div>
         
-        {/* Decorative corner accents */}
-        <div className="absolute top-10 left-10 w-16 h-16 border-l-2 border-t-2 border-brand-primary/30"></div>
-        <div className="absolute top-10 right-10 w-16 h-16 border-r-2 border-t-2 border-brand-secondary/30"></div>
-        <div className="absolute bottom-10 left-10 w-16 h-16 border-l-2 border-b-2 border-brand-secondary/30"></div>
-        <div className="absolute bottom-10 right-10 w-16 h-16 border-r-2 border-b-2 border-brand-primary/30"></div>
-        
-        {/* Center glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-brand-primary/10 to-brand-secondary/10 rounded-full blur-3xl"></div>
+        {/* Center glow - reduced opacity for mobile */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 rounded-full blur-3xl"></div>
         
         <div className="container mx-auto px-6 md:px-12 lg:px-16 text-center relative z-10">
           <motion.div
@@ -475,13 +434,7 @@ const HomeRedesign = () => {
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="relative p-8 md:p-12 bg-gradient-to-br from-brand-primary/10 via-purple-500/5 to-brand-secondary/10 rounded-3xl border-2 border-brand-primary/30 shadow-2xl shadow-brand-primary/10">
-              {/* Decorative corner elements */}
-              <div className="absolute top-4 left-4 w-12 h-12 border-l-2 border-t-2 border-brand-primary/50 rounded-tl-lg"></div>
-              <div className="absolute top-4 right-4 w-12 h-12 border-r-2 border-t-2 border-brand-secondary/50 rounded-tr-lg"></div>
-              <div className="absolute bottom-4 left-4 w-12 h-12 border-l-2 border-b-2 border-brand-secondary/50 rounded-bl-lg"></div>
-              <div className="absolute bottom-4 right-4 w-12 h-12 border-r-2 border-b-2 border-brand-primary/50 rounded-br-lg"></div>
-              
+            <div className="relative p-8 md:p-12 bg-gradient-to-br from-brand-primary/10 via-purple-500/5 to-brand-secondary/10 rounded-2xl border border-brand-primary/30 shadow-xl">
               <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4">
                 <span className="bg-gradient-to-r from-brand-primary via-purple-400 to-brand-secondary bg-clip-text text-transparent">
                   Let's Build Something Together
@@ -507,9 +460,6 @@ const HomeRedesign = () => {
                   Connect on LinkedIn
                 </Button>
               </div>
-              
-              {/* Ambient glow */}
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 -z-10 blur-2xl"></div>
             </div>
           </motion.div>
         </div>
