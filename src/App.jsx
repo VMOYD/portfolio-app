@@ -2,11 +2,14 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import Header from "./components/Header";
 import Home from "./pages/Home";
+import HomeRedesign from "./pages/HomeRedesign"; // NEW REDESIGNED HOME
 import About from "./pages/About";
+import AboutRedesign from "./pages/AboutRedesign"; // NEW REDESIGNED ABOUT
 import Projects from "./pages/Projects";
+import ProjectsRedesign from "./pages/ProjectsRedesign"; // NEW REDESIGNED PROJECTS
 import ContactMe from "./pages/Contact";
+import ContactRedesign from "./pages/ContactRedesign"; // NEW REDESIGNED CONTACT
 import Footer from "./components/Footer";
-import Certificates from "./pages/Certificate";
 import NotFound from "./pages/NotFound";
 import SEO from "./components/SEO";
 import StructuredData from "./components/StructuredData";
@@ -23,7 +26,7 @@ const App = () => {
   // Get current route for SEO
   const getCurrentRoute = () => {
     const path = location.pathname;
-    if (path === '/' || path === '') return 'home';
+    if (path === '/' || path === '' || path === '/redesign') return 'home';
     if (path.includes('/about')) return 'about';
     if (path.includes('/projects')) return 'projects';
     if (path.includes('/contact')) return 'contact';
@@ -55,10 +58,16 @@ const App = () => {
       <Header />
       <main role="main">
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<> <About /> <Certificates/> </>} />
-          <Route path="/projects" element={<Projects />  } />
-          <Route path="/contact" element={<ContactMe />} />
+          {/* TEMP: Use redesigned pages as default */}
+          <Route path="/" element={<HomeRedesign />} />
+          <Route path="/redesign" element={<HomeRedesign />} />
+          <Route path="/old" element={<Home />} />
+          <Route path="/about" element={<AboutRedesign />} />
+          <Route path="/about-old" element={<About />} />
+          <Route path="/projects" element={<ProjectsRedesign />  } />
+          <Route path="/projects-old" element={<Projects />  } />
+          <Route path="/contact" element={<ContactRedesign />} />
+          <Route path="/contact-old" element={<ContactMe />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
