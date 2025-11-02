@@ -5,12 +5,12 @@ const SEO = ({
   title = "Vyom Dubey - Software Engineer & AI Specialist | Portfolio",
   description = "Software Engineer at NetApp specializing in AI, cloud computing, and full-stack development. Explore my projects, skills, and professional journey in software development.",
   keywords = "Vyom Dubey, Software Engineer, NetApp, AI Specialist, Full Stack Developer, React, Python, Cloud Computing, Portfolio",
-  image = "https://vmoyd.github.io/portfolio-app/brain-ok3.png",
+  image = "https://vyomdubey.com/brain-ok3.png",
   type = "website"
 }) => {
   const location = useLocation();
-  const baseUrl = "https://vmoyd.github.io/portfolio-app";
-  const currentUrl = `${baseUrl}${location.pathname}${location.hash}`;
+  const baseUrl = "https://vyomdubey.com";
+  const currentUrl = `${baseUrl}${location.pathname}`;
 
   useEffect(() => {
     // Update document title

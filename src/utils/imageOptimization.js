@@ -2,7 +2,7 @@
 
 export const optimizeImageForSEO = (imageName, alt, title = '') => {
   return {
-    src: `/portfolio-app/${imageName}`,
+    src: `/${imageName}`,
     alt: alt,
     title: title,
     loading: 'lazy',
@@ -12,7 +12,7 @@ export const optimizeImageForSEO = (imageName, alt, title = '') => {
 };
 
 export const generateImageMeta = (imageName, alt, description) => {
-  const imageUrl = `https://vmoyd.github.io/portfolio-app/${imageName}`;
+  const imageUrl = `https://vyomdubey.com/${imageName}`;
   return {
     url: imageUrl,
     alt: alt,

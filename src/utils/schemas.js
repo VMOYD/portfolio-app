@@ -10,8 +10,8 @@ export const PersonSchema = {
     "name": "NetApp"
   },
   "description": "Software Engineer specializing in AI, cloud computing, and full-stack development",
-  "url": "https://vmoyd.github.io/portfolio-app/",
-  "image": "https://vmoyd.github.io/portfolio-app/brain-ok3.png",
+  "url": "https://vyomdubey.com/",
+  "image": "https://vyomdubey.com/brain-ok3.png",
   "sameAs": [
     "https://github.com/VMOYD"
   ],
@@ -45,7 +45,7 @@ export const WebsiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "Vyom Dubey Portfolio",
-  "url": "https://vmoyd.github.io/portfolio-app/",
+  "url": "https://vyomdubey.com/",
   "description": "Personal portfolio website showcasing software engineering projects and AI specialization",
   "author": {
     "@type": "Person",
@@ -53,7 +53,7 @@ export const WebsiteSchema = {
   },
   "potentialAction": {
     "@type": "SearchAction",
-    "target": "https://vmoyd.github.io/portfolio-app/?q={search_term_string}",
+    "target": "https://vyomdubey.com/?q={search_term_string}",
     "query-input": "required name=search_term_string"
   }
 };
@@ -76,10 +76,10 @@ export const ProjectSchema = (project) => ({
 export const OrganizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "@id": "https://vmoyd.github.io/portfolio-app/#organization",
+  "@id": "https://vyomdubey.com/#organization",
   "name": "Vyom Dubey Portfolio",
-  "url": "https://vmoyd.github.io/portfolio-app/",
-  "logo": "https://vmoyd.github.io/portfolio-app/vy.png",
+  "url": "https://vyomdubey.com/",
+  "logo": "https://vyomdubey.com/VD.png",
   "description": "Personal portfolio showcasing software engineering expertise and AI specialization"
 };
 

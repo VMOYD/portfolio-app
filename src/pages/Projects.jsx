@@ -28,7 +28,7 @@ const projects = [
   { 
     name: "Portfolio", 
     desc: "My personal portfolio website.", 
-    link: "https://vmoyd.github.io/portfolio-app/", 
+    link: "https://vyomdubey.com/", 
     code: "https://github.com/VMOYD/portfolio-app", 
     techstackused: "React.js, Vite, HTML5, CSS3, JavaScript, Material-UI",
     techstackicons: ["reactjs", "vitejs", "html5", "css3", "js", "materialui"]

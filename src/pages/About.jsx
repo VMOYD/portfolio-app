@@ -206,12 +206,12 @@ const About = () => {
                     className="block w-full h-full flex items-center justify-center"
                   >
                     <img 
-                      src={`/portfolio-app/${event.iconPath}`} 
+                      src={`/${event.iconPath}`} 
                       alt={`${event.title} icon`}
                       className="w-10 h-10 object-contain"
                       onError={(e) => {
                         e.target.onerror = null;
-                        e.target.src = "/portfolio-app/fallback-icon.png";
+                        e.target.src = "/fallback-icon.png";
                       }}
                     />
                   </a>

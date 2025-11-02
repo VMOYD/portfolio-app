@@ -47,8 +47,8 @@ const Header = () => {
       {/* Logo - updated glow to amber */}
       <div className="relative">
         <img 
-          src="/portfolio-app/VD.png" 
-          alt="Logo header" 
+          src="/VD.png" 
+          alt="Vyom Dubey Logo" 
           className="h-12 cursor-pointer hover:scale-105 transition-transform duration-300"
         />
         <div className="absolute -inset-1 bg-amber-500 opacity-20 blur-md rounded-full -z-10"></div>
