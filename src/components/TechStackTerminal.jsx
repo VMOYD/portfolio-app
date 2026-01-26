@@ -113,7 +113,7 @@ const TechStackTerminal = () => {
             animate={{ opacity: [1, 0, 1] }}
             transition={{ duration: 1, repeat: Infinity }}
           >
-            {activeCategory === "all" ? "ls -la" : `cd ${activeCategory.substring(2)}`}
+            {activeCategory === "all" ? "ls -la" : `cd ${activeCategory}`}
           </motion.span>
         </div>
 

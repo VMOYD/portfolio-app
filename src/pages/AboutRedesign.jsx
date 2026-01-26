@@ -2,8 +2,10 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Button from "../components/ui/Button";
 import SectionHeader from "../components/ui/SectionHeader";
+import SEO from "../components/SEO";
 import StructuredData from "../components/StructuredData";
 import { PersonSchema } from "../utils/schemas";
+import { PAGE_SEO } from "../utils/seoConfig";
 
 // Timeline Data
 const timeline = [
@@ -53,6 +55,12 @@ const skills = {
 const AboutRedesign = () => {
   return (
     <>
+      <SEO 
+        title={PAGE_SEO.about.title}
+        description={PAGE_SEO.about.description}
+        keywords={PAGE_SEO.about.keywords}
+        type={PAGE_SEO.about.type}
+      />
       <StructuredData schema={PersonSchema} />
       
       {/* Hero Section with Photo */}

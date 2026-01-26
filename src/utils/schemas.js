@@ -13,7 +13,13 @@ export const PersonSchema = {
   "url": "https://vyomdubey.com/",
   "image": "https://vyomdubey.com/brain-ok3.png",
   "sameAs": [
-    "https://github.com/VMOYD"
+    "https://github.com/VMOYD",
+    "https://www.linkedin.com/in/vyom-dubey/",
+    "https://x.com/dubey_vyom_",
+    "https://www.youtube.com/channel/UCpjxHechB6BeyMo4Lcsm9zw",
+    "https://leetcode.com/u/VMOY/",
+    "https://www.geeksforgeeks.org/user/vyom_dubey/",
+    "https://www.codechef.com/users/imperial_head"
   ],
   "knowsAbout": [
     "Artificial Intelligence", 

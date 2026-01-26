@@ -4,8 +4,10 @@ import { BsTwitterX } from "react-icons/bs";
 import { SiLeetcode, SiGeeksforgeeks, SiCodechef } from "react-icons/si";
 import Button from "../components/ui/Button";
 import Card from "../components/ui/Card";
+import SEO from "../components/SEO";
 import StructuredData from "../components/StructuredData";
 import { PersonSchema } from "../utils/schemas";
+import { PAGE_SEO } from "../utils/seoConfig";
 
 const socialLinks = [
   { name: "GitHub", icon: FaGithub, url: "https://github.com/VMOYD", color: "hover:text-gray-400" },
@@ -20,6 +22,12 @@ const socialLinks = [
 const ContactRedesign = () => {
   return (
     <>
+      <SEO 
+        title={PAGE_SEO.contact.title}
+        description={PAGE_SEO.contact.description}
+        keywords={PAGE_SEO.contact.keywords}
+        type={PAGE_SEO.contact.type}
+      />
       <StructuredData schema={PersonSchema} />
       
       {/* Hero Section */}

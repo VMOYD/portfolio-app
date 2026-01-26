@@ -4,7 +4,9 @@ import { Link } from "react-router-dom";
 import Button from "../components/ui/Button";
 import Card from "../components/ui/Card";
 import SectionHeader from "../components/ui/SectionHeader";
+import SEO from "../components/SEO";
 import StructuredData from "../components/StructuredData";
+import { PAGE_SEO } from "../utils/seoConfig";
 
 const projects = [
   { 
@@ -130,6 +132,12 @@ const ProjectsRedesign = () => {
 
   return (
     <>
+      <SEO 
+        title={PAGE_SEO.projects.title}
+        description={PAGE_SEO.projects.description}
+        keywords={PAGE_SEO.projects.keywords}
+        type={PAGE_SEO.projects.type}
+      />
       <StructuredData schema={{
         "@context": "https://schema.org",
         "@type": "ItemList",

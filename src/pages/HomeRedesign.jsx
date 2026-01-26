@@ -4,8 +4,10 @@ import Button from "../components/ui/Button";
 import Card from "../components/ui/Card";
 import SectionHeader from "../components/ui/SectionHeader";
 import TechStackTerminal from "../components/TechStackTerminal";
+import SEO from "../components/SEO";
 import StructuredData from "../components/StructuredData";
 import { PersonSchema } from "../utils/schemas";
+import { PAGE_SEO } from "../utils/seoConfig";
 
 // Featured projects - top 3
 const featuredProjects = [
@@ -41,6 +43,12 @@ const featuredProjects = [
 const HomeRedesign = () => {
   return (
     <>
+      <SEO 
+        title={PAGE_SEO.home.title}
+        description={PAGE_SEO.home.description}
+        keywords={PAGE_SEO.home.keywords}
+        type={PAGE_SEO.home.type}
+      />
       <StructuredData schema={PersonSchema} />
       
       {/* Hero Section */}
