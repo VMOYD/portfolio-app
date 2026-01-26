@@ -117,27 +117,41 @@ This portfolio features a modern, minimalist design inspired by the 2026 tech ae
 ## ⚙️ Installation & Setup
 
 ### **Prerequisites**
-- Node.js 18+ and npm/yarn
-- Git
+- **Node.js 18+** (Recommended: v20 or higher) - [Download here](https://nodejs.org/)
+- **npm** (comes with Node.js) or **yarn**
+- **Git** - [Download here](https://git-scm.com/)
 
 ### **Using Node.js**
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/VMOYD/portfolio-app.git
-   ```
-2. Navigate to the project directory:
-   ```bash
-   cd portfolio-app
-   ```
-3. Install dependencies:
-   ```bash
-   npm install
-   ```
-4. Start the development server:
-   ```bash
-   npm run dev
-   ```
-5. Open `http://localhost:5173` in your browser.
+
+#### **1. Clone the repository:**
+```bash
+git clone https://github.com/VMOYD/portfolio-app.git
+cd portfolio-app
+```
+
+#### **2. Windows Users - Enable PowerShell Script Execution:**
+If you encounter npm script execution errors on Windows, run:
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+
+#### **3. Install dependencies:**
+Due to React 19 compatibility, use the `--legacy-peer-deps` flag:
+```bash
+npm install --legacy-peer-deps
+```
+
+**Common Issues:**
+- If you see peer dependency warnings, this is normal due to React 19
+- Missing dependencies like `react-markdown` or `prop-types` are automatically installed
+
+#### **4. Start the development server:**
+```bash
+npm run dev
+```
+
+#### **5. Open your browser:**
+Navigate to `http://localhost:3000` (configured in vite.config.js)
 
 ### **Build for Production**
 ```bash
