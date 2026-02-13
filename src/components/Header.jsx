@@ -31,7 +31,7 @@ const Header = () => {
 
   return (
     <header 
-      className={`fixed top-0 w-full px-6 md:px-12 lg:px-16 py-4 flex items-center justify-between z-50 transition-all duration-300 ${
+      className={`fixed top-0 w-full px-6 md:px-12 lg:px-16 py-3 flex items-center justify-between z-50 transition-all duration-300 ${
         scrolled 
           ? "bg-bg-primary/95 backdrop-blur-md border-b border-border shadow-lg" 
           : "bg-bg-primary/60 backdrop-blur-sm"
@@ -40,9 +40,9 @@ const Header = () => {
       {/* Logo */}
       <Link to="/" className="relative group">
         <img 
-          src="/VD.png" 
+          src="/new_logo.png" 
           alt="Vyom Dubey Logo" 
-          className="h-10 md:h-12 transition-transform duration-300 group-hover:scale-105"
+          className="h-16 md:h-18 transition-transform duration-300 group-hover:scale-105"
         />
         {/* Subtle glow on hover only */}
         <div className="absolute -inset-2 bg-brand-primary opacity-0 group-hover:opacity-20 blur-lg rounded-full transition-opacity duration-300 -z-10"></div>

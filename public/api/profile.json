@@ -1,0 +1,98 @@
+{
+  "profile": {
+    "name": "Vyom Dubey",
+    "title": "Software Engineer",
+    "company": "NetApp",
+    "companyUrl": "https://www.netapp.com/",
+    "location": "India",
+    "email": "vyom.dubey@outlook.com",
+    "website": "https://vyomdubey.com",
+    "bio": "Software Engineer at NetApp specializing in AI, machine learning, and cloud computing. MCA graduate from VIT Vellore 2025 with expertise in building scalable cloud systems and AI-powered applications.",
+    "distinguishingIdentifiers": [
+      "NetApp Software Engineer (2025-Present)",
+      "VIT Vellore MCA Graduate (2025)",
+      "Specializes in AI, ML, and Cloud Computing",
+      "Works on Azure NetApp Files and Cloud Volume Service"
+    ]
+  },
+  "education": [
+    {
+      "degree": "Master of Computer Applications (MCA)",
+      "institution": "Vellore Institute of Technology (VIT Vellore)",
+      "year": "2025",
+      "period": "2023-2025",
+      "specialization": "AI, Machine Learning, Cloud Computing"
+    },
+    {
+      "degree": "Bachelor of Computer Applications (BCA)",
+      "institution": "Bundelkhand University, Jhansi",
+      "year": "2023",
+      "period": "2020-2023"
+    }
+  ],
+  "experience": [
+    {
+      "title": "Software Engineer",
+      "company": "NetApp",
+      "period": "2025-Present",
+      "description": "Working on Cloud Volume Service, primarily focusing on Azure NetApp Files",
+      "technologies": ["Azure", "Cloud Computing", "Distributed Systems"]
+    },
+    {
+      "title": "AI Intern",
+      "company": "NetApp",
+      "period": "2024-2025",
+      "description": "Built AI-driven solutions, worked on machine learning models and automation",
+      "technologies": ["AI", "Machine Learning", "Python", "Automation"]
+    }
+  ],
+  "skills": {
+    "languages": ["Python", "JavaScript", "Java", "C++"],
+    "aiml": ["Machine Learning", "Deep Learning", "Natural Language Processing", "Computer Vision"],
+    "cloud": ["Azure NetApp Files", "AWS", "Google Cloud Platform", "Cloud Computing"],
+    "frontend": ["React.js", "Next.js", "Tailwind CSS", "HTML5", "CSS3"],
+    "backend": ["Node.js", "Express.js", "MongoDB", "REST APIs"],
+    "tools": ["Git", "Docker", "VS Code", "Jupyter", "TensorFlow", "PyTorch"]
+  },
+  "social": {
+    "github": "https://github.com/VMOYD",
+    "linkedin": "https://www.linkedin.com/in/vyom-dubey/",
+    "twitter": "https://x.com/dubey_vyom_",
+    "youtube": "https://www.youtube.com/channel/UCpjxHechB6BeyMo4Lcsm9zw",
+    "leetcode": "https://leetcode.com/u/VMOY/",
+    "geeksforgeeks": "https://www.geeksforgeeks.org/user/vyom_dubey/",
+    "codechef": "https://www.codechef.com/users/imperial_head"
+  },
+  "projects": [
+    {
+      "name": "VisionScript",
+      "description": "AI-powered image analysis tool",
+      "category": "AI/ML"
+    },
+    {
+      "name": "Cloud Storage Solutions",
+      "description": "Enterprise cloud storage solutions at NetApp",
+      "category": "Cloud Computing"
+    },
+    {
+      "name": "Portfolio Website",
+      "description": "Personal portfolio showcasing projects and skills",
+      "category": "Web Development",
+      "url": "https://vyomdubey.com"
+    }
+  ],
+  "interests": [
+    "Artificial Intelligence",
+    "Machine Learning",
+    "Cloud Computing",
+    "Full-Stack Development",
+    "Software Engineering",
+    "Open Source"
+  ],
+  "meta": {
+    "version": "1.0",
+    "lastUpdated": "2025-02-14",
+    "schema": "https://schema.org/Person",
+    "note": "This profile is for Vyom Dubey - Software Engineer at NetApp, MCA from VIT Vellore 2025"
+  }
+}

@@ -7,38 +7,50 @@ export const PersonSchema = {
   "jobTitle": "Software Engineer",
   "worksFor": {
     "@type": "Organization",
-    "name": "NetApp"
+    "name": "NetApp",
+    "url": "https://www.netapp.com/"
   },
-  "description": "Software Engineer specializing in AI, cloud computing, and full-stack development",
+  "description": "Software Engineer at NetApp specializing in AI, machine learning, and cloud computing. MCA graduate from VIT Vellore 2025.",
   "url": "https://vyomdubey.com/",
-  "image": "https://vyomdubey.com/brain-ok3.png",
+  "image": "https://vyomdubey.com/new_logo.png",
   "sameAs": [
     "https://github.com/VMOYD"
   ],
   "knowsAbout": [
     "Artificial Intelligence", 
+    "Machine Learning",
     "Cloud Computing", 
+    "Azure NetApp Files",
     "React.js", 
     "Python", 
     "Full Stack Development", 
-    "Machine Learning",
     "JavaScript",
     "Node.js",
     "MongoDB",
-    "Express.js"
+    "Express.js",
+    "Software Engineering"
   ],
   "alumniOf": [
     {
       "@type": "EducationalOrganization",
       "name": "Vellore Institute of Technology",
-      "description": "Master of Computer Applications"
+      "alternateName": "VIT Vellore",
+      "description": "Master of Computer Applications (MCA)",
+      "startDate": "2023",
+      "endDate": "2025"
     },
     {
       "@type": "EducationalOrganization", 
       "name": "Bundelkhand University",
-      "description": "Bachelor of Computer Applications"
+      "description": "Bachelor of Computer Applications (BCA)",
+      "startDate": "2020",
+      "endDate": "2023"
     }
-  ]
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "IN"
+  }
 };
 
 export const WebsiteSchema = {
@@ -79,7 +91,7 @@ export const OrganizationSchema = {
   "@id": "https://vyomdubey.com/#organization",
   "name": "Vyom Dubey Portfolio",
   "url": "https://vyomdubey.com/",
-  "logo": "https://vyomdubey.com/VD.png",
+  "logo": "https://vyomdubey.com/new_logo.png",
   "description": "Personal portfolio showcasing software engineering expertise and AI specialization"
 };
 

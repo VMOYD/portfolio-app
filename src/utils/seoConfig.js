@@ -5,7 +5,7 @@ export const SITE_CONFIG = {
   siteName: "Vyom Dubey Portfolio",
   defaultTitle: "Vyom Dubey - Software Engineer & AI Specialist | Portfolio",
   defaultDescription: "Software Engineer at NetApp specializing in AI, cloud computing, and full-stack development. Explore my projects, skills, and professional journey in software development.",
-  defaultImage: "https://vyomdubey.com/brain-ok3.png",
+  defaultImage: "https://vyomdubey.com/new_logo.png",
   author: "Vyom Dubey",
   twitterHandle: "@vmoyd",
   linkedinProfile: "https://linkedin.com/in/vyom-dubey",

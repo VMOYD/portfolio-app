@@ -5,7 +5,7 @@ const SEO = ({
   title = "Vyom Dubey - Software Engineer & AI Specialist | Portfolio",
   description = "Software Engineer at NetApp specializing in AI, cloud computing, and full-stack development. Explore my projects, skills, and professional journey in software development.",
   keywords = "Vyom Dubey, Software Engineer, NetApp, AI Specialist, Full Stack Developer, React, Python, Cloud Computing, Portfolio",
-  image = "https://vyomdubey.com/brain-ok3.png",
+  image = "https://vyomdubey.com/new_logo.png",
   type = "website"
 }) => {
   const location = useLocation();
@@ -38,6 +38,11 @@ const SEO = ({
     // Update basic meta tags
     updateMetaTag('description', description);
     updateMetaTag('keywords', keywords);
+    updateMetaTag('author', 'Vyom Dubey - NetApp Software Engineer');
+    
+    // Add additional meta tags for AI discoverability
+    updateMetaTag('generator', 'React Vite');
+    updateMetaTag('revisit-after', '7 days');
 
     // Update Open Graph tags
     updateMetaTag('og:title', title, true);
