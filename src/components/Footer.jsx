@@ -24,25 +24,29 @@ const Footer = () => {
       icon: <FaGithub />, 
       url: "https://github.com/VMOYD",
       label: "GitHub",
-      hoverColor: "hover:text-gray-300"
+      hoverColor: "hover:text-gray-300",
+      rel: "me noopener noreferrer"
     },
     { 
       icon: <BsTwitterX />, 
       url: "https://x.com/dubey_vyom_",
       label: "X (Twitter)",
-      hoverColor: "hover:text-white"
+      hoverColor: "hover:text-white",
+      rel: "me noopener noreferrer"
     },
     { 
       icon: <FaLinkedin />, 
       url: "https://www.linkedin.com/in/vyom-dubey/",
       label: "LinkedIn",
-      hoverColor: "hover:text-blue-400"
+      hoverColor: "hover:text-blue-400",
+      rel: "me noopener noreferrer"
     },
     { 
       icon: <FaYoutube />, 
       url: "https://www.youtube.com/channel/UCpjxHechB6BeyMo4Lcsm9zw?sub_confirmation=1",
       label: "YouTube",
-      hoverColor: "hover:text-red-500"
+      hoverColor: "hover:text-red-500",
+      rel: "noopener noreferrer"
     }
   ];
 
@@ -54,9 +58,9 @@ const Footer = () => {
           <div className="text-center md:text-left">
             <div className="flex items-center justify-center md:justify-start gap-3 mb-3">
               <img 
-                src="/VD.png" 
+                src="/new_logo.png" 
                 alt="Vyom Dubey" 
-                className="h-8"
+                className="h-10"
               />
               <span className="font-heading font-bold text-lg text-text-primary">
                 Vyom Dubey
@@ -74,7 +78,7 @@ const Footer = () => {
                 key={index}
                 href={link.url}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel={link.rel}
                 aria-label={link.label}
                 className={`text-text-muted text-2xl transition-all duration-300 ${link.hoverColor}`}
                 whileHover={{ scale: 1.2, y: -3 }}
